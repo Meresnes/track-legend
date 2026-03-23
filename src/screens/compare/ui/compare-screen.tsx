@@ -1,7 +1,7 @@
-import { PlaceholderCard } from "@/components/placeholder-card";
-import { ErrorProbe } from "@/components/error-probe";
+import { ErrorProbe } from "@/features/dev/error-probe";
+import { PlaceholderCard } from "@/shared/ui";
 
-export default function ComparePage() {
+export default function CompareScreen() {
   return (
     <div className="space-y-6">
       <div className="space-y-1">

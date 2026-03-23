@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { PlaceholderCard } from "@/components/placeholder-card";
+import { PlaceholderCard } from "@/shared/ui";
 
-export default function SessionsPage() {
+export default function SessionsScreen() {
   return (
     <div className="space-y-6">
       <div className="space-y-1">

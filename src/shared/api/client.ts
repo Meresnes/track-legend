@@ -1,4 +1,4 @@
-import { ApiError, notifyApiError } from "@/lib/api/errors";
+import { ApiError, notifyApiError } from "./errors";
 
 type JsonLike = Record<string, unknown>;
 

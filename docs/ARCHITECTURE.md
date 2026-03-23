@@ -3,15 +3,23 @@
 ## App Structure
 - Next.js App Router lives in `src/app`.
 - Root `/` redirects to `/upload`.
-- The app shell is under `src/app/(app)` and wraps the core screens with shared navigation and layout.
+- The workspace shell is under `src/app/(workspace)` and wraps the core product routes with shared navigation and layout.
 - Current core routes are `/upload`, `/sessions`, `/sessions/[sessionId]`, and `/compare`.
-- Route-level `error.tsx` and `not-found.tsx` files exist at both the root and app-shell levels.
+- Route-level `error.tsx` and `not-found.tsx` files exist at both the root and workspace levels.
 - A small dev-only API route at `src/app/api/dev/errors/[status]/route.ts` is used to exercise error handling.
+- `src/app` is reserved for routing, bootstrap, and route handlers; route compositions live in `src/screens`.
+
+## FSD Layers
+- `src/shared` owns reusable UI and infrastructure such as `placeholder-card` and API client/error handling.
+- `src/widgets` owns app-shell composition, including the shared navigation chrome.
+- `src/features` owns small interactive behaviors such as the dev error probe.
+- `src/screens` owns route-level compositions for upload, sessions, session detail, and compare.
+- Domain entities are intentionally deferred until real session/lap contracts exist.
 
 ## Data And State
 - `src/app/providers.tsx` wires TanStack Query and `sonner`.
-- `src/lib/api/client.ts` is the single fetch wrapper for API calls.
-- `src/lib/api/errors.ts` defines `ApiError` and the global API error notification hook.
+- `src/shared/api/client.ts` is the single fetch wrapper for API calls.
+- `src/shared/api/errors.ts` defines `ApiError` and the global API error notification hook.
 - API failures are normalized into `ApiError` and reported through toast notifications.
 
 ## UI Baseline

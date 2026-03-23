@@ -3,7 +3,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactNode, useEffect, useState } from "react";
 import { Toaster, toast } from "sonner";
-import { ApiError, setApiErrorHandler } from "@/lib/api/errors";
+import { ApiError, setApiErrorHandler } from "@/shared/api";
 
 function getErrorTitle(error: ApiError): string {
   if (error.status === 401) return "Unauthorized request";

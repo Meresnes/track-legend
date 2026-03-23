@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { apiClient, ApiError } from "@/lib/api";
+import { ApiError, apiClient } from "@/shared/api";
 
 function toApiError(error: unknown): ApiError {
   if (error instanceof ApiError) return error;

@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PlaceholderCard } from "@/components/placeholder-card";
+import { PlaceholderCard } from "@/shared/ui";
 
-type SessionDetailPageProps = {
+type SessionDetailScreenProps = {
   params: Promise<{ sessionId: string }>;
 };
 
-export default async function SessionDetailPage({ params }: SessionDetailPageProps) {
+export default async function SessionDetailScreen({
+  params,
+}: SessionDetailScreenProps) {
   const { sessionId } = await params;
 
   if (!sessionId) notFound();

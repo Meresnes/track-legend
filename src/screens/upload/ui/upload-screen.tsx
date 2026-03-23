@@ -1,6 +1,6 @@
-import { PlaceholderCard } from "@/components/placeholder-card";
+import { PlaceholderCard } from "@/shared/ui";
 
-export default function UploadPage() {
+export default function UploadScreen() {
   return (
     <div className="space-y-6">
       <div className="space-y-1">
