@@ -1,5 +1,44 @@
 # Track Legend Architecture
 
+## Documentation Scope
+- `docs/ARCHITECTURE.md` must capture only architecture-level information.
+- Mandatory content:
+  - Current project tree for the core implementation.
+  - Route and module boundaries.
+  - Key technical decisions and their intent.
+  - Data and state strategy.
+- Do not include micro-level behavior, UI quirks, or one-off interaction details that do not change architecture or contracts.
+
+## Project Tree (Core Implementation)
+```text
+src/
+  app/
+    layout.tsx
+    providers.tsx
+    page.tsx
+    (workspace)/
+      layout.tsx
+      upload/page.tsx
+      sessions/page.tsx
+      sessions/[sessionId]/page.tsx
+      compare/page.tsx
+    api/dev/errors/[status]/route.ts
+  screens/
+    upload/ui/upload-screen.tsx
+    sessions/ui/sessions-screen.tsx
+    session-detail/ui/session-detail-screen.tsx
+    compare/ui/compare-screen.tsx
+  widgets/
+    app-shell/ui/app-shell.tsx
+    app-shell/ui/app-nav.tsx
+  features/
+    dev/error-probe/ui/error-probe.tsx
+  shared/
+    api/client.ts
+    api/errors.ts
+    ui/placeholder-card.tsx
+```
+
 ## App Structure
 - Next.js App Router lives in `src/app`.
 - Root `/` redirects to `/upload`.
@@ -15,6 +54,12 @@
 - `src/features` owns small interactive behaviors such as the dev error probe.
 - `src/screens` owns route-level compositions for upload, sessions, session detail, and compare.
 - Domain entities are intentionally deferred until real session/lap contracts exist.
+
+## Key Technical Decisions
+- Use App Router route files only for routing and composition entrypoints; keep screen implementations in `src/screens`.
+- Keep a single app shell (`src/widgets/app-shell`) for cross-route navigation and layout consistency.
+- Use a single shared API client and normalized API error shape in `src/shared/api`.
+- Defer domain entity layer until stable telemetry contracts exist to avoid premature abstractions.
 
 ## Data And State
 - `src/app/providers.tsx` wires TanStack Query and `sonner`.
