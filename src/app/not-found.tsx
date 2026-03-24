@@ -14,12 +14,6 @@ export default function RootNotFound() {
         >
           Back to home
         </Link>
-        <Link
-          href="/upload"
-          className="inline-flex rounded-md border border-[var(--tl-border-strong)] bg-[var(--tl-bg-elev-1)] px-3 py-1.5 text-sm text-[var(--tl-text-primary)]"
-        >
-          Back to upload
-        </Link>
       </div>
     </div>
   );

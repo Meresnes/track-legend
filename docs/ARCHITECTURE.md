@@ -9,6 +9,14 @@
   - Data and state strategy.
 - Do not include micro-level behavior, UI quirks, or one-off interaction details that do not change architecture or contracts.
 
+## Architectural Style
+- The project uses a hybrid `Next.js App Router + layered feature folders` approach.
+- `src/app` is the Next.js routing and framework boundary.
+- `src/screens`, `src/widgets`, `src/features`, and `src/shared` organize implementation outside the router.
+- This is intentionally not strict Feature-Sliced Design:
+  - `screens` is used for route-level compositions instead of a formal FSD `pages` layer.
+  - The naming favors clarity inside a Next.js App Router codebase over strict adherence to FSD terminology.
+
 ## Project Tree (Core Implementation)
 ```text
 src/
@@ -48,18 +56,19 @@ src/
 - A small dev-only API route at `src/app/api/dev/errors/[status]/route.ts` is used to exercise error handling.
 - `src/app` is reserved for routing, bootstrap, and route handlers; route compositions live in `src/screens`.
 
-## FSD Layers
+## Layered Implementation Areas
 - `src/shared` owns reusable UI and infrastructure such as `placeholder-card` and API client/error handling.
 - `src/widgets` owns app-shell composition, including the shared navigation chrome.
 - `src/features` owns small interactive behaviors such as the dev error probe.
 - `src/screens` owns route-level compositions for upload, sessions, session detail, and compare.
-- Domain entities are intentionally deferred until real session/lap contracts exist.
+- A dedicated entities/domain layer is intentionally deferred until real session/lap contracts exist.
 
 ## Key Technical Decisions
 - Use App Router route files only for routing and composition entrypoints; keep screen implementations in `src/screens`.
 - Keep a single app shell (`src/widgets/app-shell`) for cross-route navigation and layout consistency.
 - Use a single shared API client and normalized API error shape in `src/shared/api`.
-- Defer domain entity layer until stable telemetry contracts exist to avoid premature abstractions.
+- Keep `screens` as the route-composition layer to avoid overloading `pages`, which is ambiguous in a Next.js codebase.
+- Defer a dedicated domain entity layer until stable telemetry contracts exist to avoid premature abstractions.
 
 ## Data And State
 - `src/app/providers.tsx` wires TanStack Query and `sonner`.
