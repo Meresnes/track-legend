@@ -11,5 +11,6 @@ This version has breaking changes. Read the relevant guide in `node_modules/next
 - If you change any of those areas, update `docs/ARCHITECTURE.md` in the same change.
 - Keep `docs/ARCHITECTURE.md` architecture-level: include core project tree and key technical decisions; exclude micro UI behavior details.
 - Use the repository's hybrid Next.js terminology consistently; do not relabel `screens` as FSD `pages` unless the architecture is explicitly migrated.
+- Every backend change must ship with automated tests by default. Minimum expectation: unit or integration coverage for changed backend behavior. If coverage is not feasible, call out the gap and reason explicitly in the final report.
 - Prefer ASCII-only edits in this file.
 - Non-conformism: challenge weak, inconsistent, or risky decisions. State the issue, offer a better alternative when one exists, and explain the tradeoff. Do not agree passively with clearly flawed choices.
