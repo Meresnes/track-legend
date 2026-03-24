@@ -20,6 +20,18 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Codex Subagents
+
+Project-scoped Codex agents live in `.codex/agents/`.
+
+- `pencilUX` handles UX/UI implementation through Pencil MCP and .pen updates.
+- Scope is visual/layout interaction work only; do not use it for route, contract, or architecture changes.
+- `docWriter` updates documentation after coding tasks: project docs, agent usage rules, and architecture notes when needed.
+- Scope is architecture-level documentation only: core project tree, route/module boundaries, data/state approach, and key technical decisions.
+- Do not use it for micro-level UI behavior notes.
+
+Suggested sequence: `pencilUX` (UX/UI) -> main implementation agent (code) -> `docWriter` (architecture docs).
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
