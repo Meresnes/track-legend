@@ -1,0 +1,59 @@
+services:
+  app:
+    build:
+      context: .
+      target: app
+    env_file:
+      - .env
+    ports:
+      - "${FE_PORT:-3000}:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - uploads_data:/data/uploads
+
+  worker:
+    build:
+      context: .
+      target: worker
+    env_file:
+      - .env
+    depends_on:
+      redis:
+        condition: service_healthy
+    volumes:
+      - uploads_data:/data/uploads
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: track_legend
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d track_legend"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
+  uploads_data:
