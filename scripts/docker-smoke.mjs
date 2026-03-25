@@ -1,7 +1,32 @@
 import { execSync } from "node:child_process";
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 
-const frontendPort = process.env.FE_PORT ?? "3000";
+function readEnvFile() {
+  const envPath = resolve(".env");
+  if (!existsSync(envPath)) return {};
+
+  const raw = readFileSync(envPath, "utf8");
+  const values = {};
+
+  for (const line of raw.split(/\r?\n/u)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+
+    const separatorIndex = trimmed.indexOf("=");
+    if (separatorIndex <= 0) continue;
+
+    const key = trimmed.slice(0, separatorIndex).trim();
+    const value = trimmed.slice(separatorIndex + 1).trim();
+    values[key] = value;
+  }
+
+  return values;
+}
+
+const env = readEnvFile();
+const frontendPort = process.env.FE_PORT ?? env.FE_PORT ?? "3000";
 const baseUrl = process.env.SMOKE_BASE_URL ?? `http://localhost:${frontendPort}`;
 
 async function waitForHealth(url, timeoutMs = 90_000) {
@@ -35,11 +60,43 @@ async function uploadSmokeFile(url) {
     body: formData,
   });
 
-  if (response.status !== 202) {
+  if (response.status !== 201) {
     throw new Error(`Upload smoke failed with status ${response.status}`);
   }
 
   return response.json();
+}
+
+async function waitForUploadDone(url, uploadId, timeoutMs = 30_000) {
+  const startedAt = Date.now();
+
+  while (Date.now() - startedAt < timeoutMs) {
+    const response = await fetch(`${url}/api/uploads/${uploadId}`);
+
+    if (!response.ok) {
+      throw new Error(`Upload status failed with status ${response.status}`);
+    }
+
+    const body = await response.json();
+
+    if (body.status === "done") {
+      if (!body.sessionId) {
+        throw new Error("Upload completed without sessionId.");
+      }
+
+      return body;
+    }
+
+    if (body.status === "error") {
+      const message =
+        body?.error?.message ?? "Upload moved to error state during docker smoke.";
+      throw new Error(message);
+    }
+
+    await delay(2_000);
+  }
+
+  throw new Error(`Timed out waiting for upload ${uploadId} to finish.`);
 }
 
 function readWorkerLogs() {
@@ -50,8 +107,8 @@ function readWorkerLogs() {
 }
 
 await waitForHealth(baseUrl);
-await uploadSmokeFile(baseUrl);
-await delay(3_000);
+const upload = await uploadSmokeFile(baseUrl);
+await waitForUploadDone(baseUrl, upload.uploadId);
 
 const workerLogs = readWorkerLogs();
 

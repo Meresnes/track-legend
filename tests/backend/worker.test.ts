@@ -15,20 +15,72 @@ function createConfig(): AppConfig {
 }
 
 describe("ingest worker", () => {
-  it("processes the expected ingest payload shape", async () => {
+  it("marks upload running, creates a session, and completes upload", async () => {
+    const markRunning = vi.fn().mockResolvedValue(undefined);
+    const createSession = vi.fn().mockResolvedValue({
+      id: "session-1",
+      sourceFilename: "session.duckdb",
+    });
+    const markDone = vi.fn().mockResolvedValue(undefined);
+
     const result = await processIngestJob({
       id: "job-1",
       data: {
         uploadId: "upload-1",
+      },
+    }, {
+      getUpload: vi.fn().mockResolvedValue({
+        uploadId: "upload-1",
+        status: "queued",
         originalFilename: "session.duckdb",
         storedPath: "/data/uploads/upload-1.duckdb",
-        enqueuedAt: "2026-03-24T12:00:00.000Z",
-      },
+        sessionId: null,
+      }),
+      markRunning,
+      createSession,
+      markDone,
+      markError: vi.fn(),
     });
 
     expect(result).toEqual({
       uploadId: "upload-1",
-      storedPath: "/data/uploads/upload-1.duckdb",
+      sessionId: "session-1",
+    });
+    expect(markRunning).toHaveBeenCalledWith("upload-1");
+    expect(createSession).toHaveBeenCalledWith("session.duckdb");
+    expect(markDone).toHaveBeenCalledWith("upload-1", "session-1");
+  });
+
+  it("persists ingest errors on the upload", async () => {
+    const markError = vi.fn().mockResolvedValue(undefined);
+
+    await expect(
+      processIngestJob(
+        {
+          id: "job-1",
+          data: {
+            uploadId: "upload-1",
+          },
+        },
+        {
+          getUpload: vi.fn().mockResolvedValue({
+            uploadId: "upload-1",
+            status: "queued",
+            originalFilename: "session.duckdb",
+            storedPath: "/data/uploads/upload-1.duckdb",
+            sessionId: null,
+          }),
+          markRunning: vi.fn().mockResolvedValue(undefined),
+          createSession: vi.fn().mockRejectedValue(new Error("db unavailable")),
+          markDone: vi.fn(),
+          markError,
+        },
+      ),
+    ).rejects.toThrow("db unavailable");
+
+    expect(markError).toHaveBeenCalledWith("upload-1", {
+      code: "INTERNAL_INGEST_ERROR",
+      message: "db unavailable",
     });
   });
 

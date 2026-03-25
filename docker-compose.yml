@@ -1,4 +1,14 @@
 services:
+  migrate:
+    build:
+      context: .
+      target: migrate
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+
   app:
     build:
       context: .
@@ -8,8 +18,8 @@ services:
     ports:
       - "${FE_PORT:-3000}:3000"
     depends_on:
-      db:
-        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
       redis:
         condition: service_healthy
     volumes:
@@ -22,6 +32,8 @@ services:
     env_file:
       - .env
     depends_on:
+      migrate:
+        condition: service_completed_successfully
       redis:
         condition: service_healthy
     volumes:

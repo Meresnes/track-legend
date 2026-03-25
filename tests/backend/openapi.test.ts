@@ -17,6 +17,7 @@ describe("OpenAPI document", () => {
 
     expect(document.paths).toHaveProperty("/api/health");
     expect(document.paths).toHaveProperty("/api/uploads");
+    expect(document.paths).toHaveProperty("/api/uploads/{uploadId}");
   });
 
   it("includes required response codes and component schemas", () => {
@@ -24,15 +25,18 @@ describe("OpenAPI document", () => {
     const uploadPath = document.paths["/api/uploads"];
     const healthPath = document.paths["/api/health"];
 
-    expect(uploadPath?.post?.responses).toHaveProperty("202");
+    expect(uploadPath?.post?.responses).toHaveProperty("201");
     expect(uploadPath?.post?.responses).toHaveProperty("400");
     expect(uploadPath?.post?.responses).toHaveProperty("413");
     expect(uploadPath?.post?.responses).toHaveProperty("503");
+    expect(document.paths["/api/uploads/{uploadId}"]?.get?.responses).toHaveProperty("200");
+    expect(document.paths["/api/uploads/{uploadId}"]?.get?.responses).toHaveProperty("404");
     expect(healthPath?.get?.responses).toHaveProperty("200");
     expect(healthPath?.get?.responses).toHaveProperty("503");
     expect(document.components?.schemas).toHaveProperty("ErrorResponse");
     expect(document.components?.schemas).toHaveProperty("HealthResponse");
-    expect(document.components?.schemas).toHaveProperty("UploadAcceptedResponse");
+    expect(document.components?.schemas).toHaveProperty("UploadQueuedResponse");
+    expect(document.components?.schemas).toHaveProperty("UploadStatusResponse");
   });
 
   it("configures Scalar to use the local OpenAPI route", () => {

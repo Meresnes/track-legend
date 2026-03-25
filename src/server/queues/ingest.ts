@@ -6,9 +6,6 @@ export const INGEST_JOB_NAME = "upload.ingest";
 
 export type IngestJobPayload = {
   uploadId: string;
-  originalFilename: string;
-  storedPath: string;
-  enqueuedAt: string;
 };
 
 export type QueueLike = {

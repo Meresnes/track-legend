@@ -9,9 +9,6 @@ describe("ingest queue producer", () => {
       { add },
       {
         uploadId: "upload-1",
-        originalFilename: "session.duckdb",
-        storedPath: "/data/uploads/upload-1.duckdb",
-        enqueuedAt: "2026-03-24T12:00:00.000Z",
       },
     );
 
@@ -19,9 +16,6 @@ describe("ingest queue producer", () => {
       INGEST_JOB_NAME,
       {
         uploadId: "upload-1",
-        originalFilename: "session.duckdb",
-        storedPath: "/data/uploads/upload-1.duckdb",
-        enqueuedAt: "2026-03-24T12:00:00.000Z",
       },
       expect.objectContaining({
         removeOnComplete: 25,

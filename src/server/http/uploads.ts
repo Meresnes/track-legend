@@ -1,5 +1,11 @@
 import { randomUUID } from "node:crypto";
 import { type AppConfig, getAppConfig } from "../config";
+import {
+  createQueuedUploadRecord,
+  deleteUploadRecord,
+  getUploadStatusSnapshot,
+  isPrismaNotFoundError,
+} from "../data/uploads";
 import { getErrorMessage, ServerError, toErrorResponse } from "../errors";
 import { enqueueUploadForIngest, type IngestJobPayload } from "../queues/ingest";
 import { deleteUpload, saveUpload } from "../storage/upload-storage";
@@ -8,18 +14,23 @@ type HandleUploadRequestDeps = {
   getConfig?: () => AppConfig;
   saveUpload?: typeof saveUpload;
   deleteUpload?: typeof deleteUpload;
+  createUploadRecord?: typeof createQueuedUploadRecord;
+  deleteUploadRecord?: typeof deleteUploadRecord;
   enqueueUpload?: (payload: IngestJobPayload, config: AppConfig) => Promise<void>;
   generateUploadId?: () => string;
 };
 
-function createAcceptedResponse(uploadId: string, queueName: string) {
+type HandleUploadStatusRequestDeps = {
+  getUploadStatus?: typeof getUploadStatusSnapshot;
+};
+
+function createUploadQueuedResponse(uploadId: string) {
   return Response.json(
     {
       uploadId,
-      queueName,
-      status: "accepted",
+      status: "queued",
     },
-    { status: 202 },
+    { status: 201 },
   );
 }
 
@@ -30,6 +41,8 @@ export async function handleUploadRequest(
   const config = deps.getConfig?.() ?? getAppConfig();
   const persistUpload = deps.saveUpload ?? saveUpload;
   const removeUpload = deps.deleteUpload ?? deleteUpload;
+  const persistUploadRecord = deps.createUploadRecord ?? createQueuedUploadRecord;
+  const removeUploadRecord = deps.deleteUploadRecord ?? deleteUploadRecord;
   const enqueueUpload = deps.enqueueUpload ?? enqueueUploadForIngest;
   const uploadId = deps.generateUploadId?.() ?? randomUUID();
 
@@ -64,17 +77,26 @@ export async function handleUploadRequest(
   }
 
   try {
+    await persistUploadRecord({
+      uploadId,
+      originalFilename: file.name,
+      storedPath,
+    });
+  } catch (error) {
+    await removeUpload(uploadId, config).catch(() => undefined);
+    return toErrorResponse(error);
+  }
+
+  try {
     await enqueueUpload(
       {
         uploadId,
-        originalFilename: file.name,
-        storedPath,
-        enqueuedAt: new Date().toISOString(),
       },
       config,
     );
   } catch (error) {
     await removeUpload(uploadId, config).catch(() => undefined);
+    await removeUploadRecord(uploadId).catch(() => undefined);
 
     return toErrorResponse(
       new ServerError(
@@ -85,5 +107,32 @@ export async function handleUploadRequest(
     );
   }
 
-  return createAcceptedResponse(uploadId, config.ingestQueueName);
+  return createUploadQueuedResponse(uploadId);
+}
+
+export async function handleUploadStatusRequest(
+  uploadId: string,
+  deps: HandleUploadStatusRequestDeps = {},
+) {
+  const lookupStatus = deps.getUploadStatus ?? getUploadStatusSnapshot;
+
+  try {
+    const status = await lookupStatus(uploadId);
+
+    if (!status) {
+      return toErrorResponse(
+        new ServerError(404, "UPLOAD_NOT_FOUND", `Upload '${uploadId}' was not found.`),
+      );
+    }
+
+    return Response.json(status, { status: 200 });
+  } catch (error) {
+    if (isPrismaNotFoundError(error)) {
+      return toErrorResponse(
+        new ServerError(404, "UPLOAD_NOT_FOUND", `Upload '${uploadId}' was not found.`),
+      );
+    }
+
+    return toErrorResponse(error);
+  }
 }
