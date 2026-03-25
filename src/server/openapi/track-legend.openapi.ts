@@ -67,24 +67,69 @@ const healthResponseSchema: OpenAPIV3_1.SchemaObject = {
   },
 };
 
-const uploadAcceptedSchema: OpenAPIV3_1.SchemaObject = {
+const uploadQueuedSchema: OpenAPIV3_1.SchemaObject = {
   type: "object",
   additionalProperties: false,
-  required: ["uploadId", "queueName", "status"],
+  required: ["uploadId", "status"],
   properties: {
     uploadId: {
       type: "string",
       format: "uuid",
       example: "3eb69d1e-df6e-4256-86cb-5273fbb2f642",
     },
-    queueName: {
+    status: {
       type: "string",
-      example: "telemetry_ingest",
+      enum: ["queued"],
+      example: "queued",
+    },
+  },
+};
+
+const uploadErrorSchema: OpenAPIV3_1.SchemaObject = {
+  type: "object",
+  additionalProperties: false,
+  required: ["code", "message"],
+  properties: {
+    code: {
+      type: "string",
+      example: "MISSING_CHANNELS",
+    },
+    message: {
+      type: "string",
+      example: "Required channels are missing.",
+    },
+  },
+};
+
+const uploadStatusSchema: OpenAPIV3_1.SchemaObject = {
+  type: "object",
+  additionalProperties: false,
+  required: ["uploadId", "status", "sessionId", "error"],
+  properties: {
+    uploadId: {
+      type: "string",
+      format: "uuid",
+      example: "3eb69d1e-df6e-4256-86cb-5273fbb2f642",
     },
     status: {
       type: "string",
-      enum: ["accepted"],
-      example: "accepted",
+      enum: ["queued", "running", "done", "error"],
+      example: "running",
+    },
+    sessionId: {
+      type: ["string", "null"],
+      format: "uuid",
+      example: null,
+    },
+    error: {
+      anyOf: [
+        {
+          $ref: "#/components/schemas/UploadError",
+        },
+        {
+          type: "null",
+        },
+      ],
     },
   },
 };
@@ -168,12 +213,12 @@ export function getOpenApiDocument(): OpenAPIV3_1.Document {
             },
           },
           responses: {
-            "202": {
+            "201": {
               description: "Upload accepted and queued for worker processing.",
               content: {
                 "application/json": {
                   schema: {
-                    $ref: "#/components/schemas/UploadAcceptedResponse",
+                    $ref: "#/components/schemas/UploadQueuedResponse",
                   },
                 },
               },
@@ -211,12 +256,54 @@ export function getOpenApiDocument(): OpenAPIV3_1.Document {
           },
         },
       },
+      "/api/uploads/{uploadId}": {
+        get: {
+          operationId: "getUploadStatus",
+          tags: ["Uploads"],
+          summary: "Get ingest status for a previously uploaded file",
+          parameters: [
+            {
+              name: "uploadId",
+              in: "path",
+              required: true,
+              schema: {
+                type: "string",
+                format: "uuid",
+              },
+            },
+          ],
+          responses: {
+            "200": {
+              description: "Current upload processing status.",
+              content: {
+                "application/json": {
+                  schema: {
+                    $ref: "#/components/schemas/UploadStatusResponse",
+                  },
+                },
+              },
+            },
+            "404": {
+              description: "Upload id was not found.",
+              content: {
+                "application/json": {
+                  schema: {
+                    $ref: "#/components/schemas/ErrorResponse",
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
     },
     components: {
       schemas: {
         ErrorResponse: errorResponseSchema,
         HealthResponse: healthResponseSchema,
-        UploadAcceptedResponse: uploadAcceptedSchema,
+        UploadError: uploadErrorSchema,
+        UploadQueuedResponse: uploadQueuedSchema,
+        UploadStatusResponse: uploadStatusSchema,
       },
     },
   };

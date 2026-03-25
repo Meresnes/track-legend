@@ -5,3 +5,11 @@ export {
   notifyApiError,
   setApiErrorHandler,
 } from "./errors";
+export {
+  createUpload,
+  getUploadStatus,
+  type CreateUploadResponse,
+  type UploadProcessingStatus,
+  type UploadStatusError,
+  type UploadStatusResponse,
+} from "./uploads";

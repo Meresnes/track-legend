@@ -9,6 +9,7 @@
     "lint": "eslint",
     "postinstall": "prisma generate",
     "prisma:generate": "prisma generate",
+    "prisma:migrate:deploy": "prisma migrate deploy",
     "test": "vitest --config vitest.config.mts",
     "test:run": "vitest run --config vitest.config.mts",
     "test:backend": "vitest run --config vitest.config.mts tests/backend",

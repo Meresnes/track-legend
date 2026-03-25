@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import type { AppConfig } from "@/server/config";
-import { handleUploadRequest } from "@/server/http/uploads";
+import { handleUploadRequest, handleUploadStatusRequest } from "@/server/http/uploads";
 
 function createConfig(): AppConfig {
   return {
@@ -24,9 +24,20 @@ function createUploadRequest(file: File) {
   });
 }
 
+function createInvalidUploadRequest() {
+  return new Request("http://localhost/api/uploads", {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain",
+    },
+    body: "invalid",
+  });
+}
+
 describe("POST /api/uploads", () => {
   it("accepts a valid .duckdb upload and enqueues it", async () => {
     const saveUpload = vi.fn().mockResolvedValue("/data/uploads/upload-1.duckdb");
+    const createUploadRecord = vi.fn().mockResolvedValue(undefined);
     const enqueueUpload = vi.fn().mockResolvedValue(undefined);
 
     const response = await handleUploadRequest(
@@ -34,6 +45,7 @@ describe("POST /api/uploads", () => {
       {
         getConfig: createConfig,
         saveUpload,
+        createUploadRecord,
         enqueueUpload,
         generateUploadId: () => "upload-1",
       },
@@ -41,21 +53,23 @@ describe("POST /api/uploads", () => {
 
     const body = await response.json();
 
-    expect(response.status).toBe(202);
+    expect(response.status).toBe(201);
     expect(saveUpload).toHaveBeenCalledOnce();
+    expect(createUploadRecord).toHaveBeenCalledWith({
+      uploadId: "upload-1",
+      originalFilename: "session.duckdb",
+      storedPath: "/data/uploads/upload-1.duckdb",
+    });
     expect(enqueueUpload).toHaveBeenCalledWith(
-      expect.objectContaining({
+      {
         uploadId: "upload-1",
-        originalFilename: "session.duckdb",
-        storedPath: "/data/uploads/upload-1.duckdb",
-      }),
+      },
       expect.objectContaining({
         ingestQueueName: "telemetry_ingest",
       }),
     );
     expect(body).toEqual({
-      queueName: "telemetry_ingest",
-      status: "accepted",
+      status: "queued",
       uploadId: "upload-1",
     });
   });
@@ -72,6 +86,18 @@ describe("POST /api/uploads", () => {
     await expect(response.json()).resolves.toEqual({
       code: "UPLOAD_FILE_TYPE_UNSUPPORTED",
       message: "Only .duckdb uploads are supported.",
+    });
+  });
+
+  it("rejects invalid multipart payloads", async () => {
+    const response = await handleUploadRequest(createInvalidUploadRequest(), {
+      getConfig: createConfig,
+    });
+
+    expect(response.status).toBe(400);
+    await expect(response.json()).resolves.toEqual({
+      code: "UPLOAD_FORMDATA_INVALID",
+      message: "Upload request body must be valid multipart form-data.",
     });
   });
 
@@ -98,23 +124,58 @@ describe("POST /api/uploads", () => {
 
   it("returns a 503 when queueing fails and deletes the stored upload", async () => {
     const deleteUpload = vi.fn().mockResolvedValue(undefined);
+    const deleteUploadRecord = vi.fn().mockResolvedValue(undefined);
 
     const response = await handleUploadRequest(
       createUploadRequest(new File([Buffer.from("telemetry")], "session.duckdb")),
       {
         getConfig: createConfig,
         saveUpload: vi.fn().mockResolvedValue("/data/uploads/upload-1.duckdb"),
+        createUploadRecord: vi.fn().mockResolvedValue(undefined),
         enqueueUpload: vi.fn().mockRejectedValue(new Error("redis unavailable")),
         deleteUpload,
+        deleteUploadRecord,
         generateUploadId: () => "upload-1",
       },
     );
 
     expect(response.status).toBe(503);
     expect(deleteUpload).toHaveBeenCalledWith("upload-1", expect.any(Object));
+    expect(deleteUploadRecord).toHaveBeenCalledWith("upload-1");
     await expect(response.json()).resolves.toEqual({
       code: "UPLOAD_QUEUE_UNAVAILABLE",
       message: "Failed to enqueue upload for processing: redis unavailable",
+    });
+  });
+
+  it("returns the current upload status snapshot", async () => {
+    const response = await handleUploadStatusRequest("upload-1", {
+      getUploadStatus: vi.fn().mockResolvedValue({
+        uploadId: "upload-1",
+        status: "done",
+        sessionId: "session-1",
+        error: null,
+      }),
+    });
+
+    expect(response.status).toBe(200);
+    await expect(response.json()).resolves.toEqual({
+      uploadId: "upload-1",
+      status: "done",
+      sessionId: "session-1",
+      error: null,
+    });
+  });
+
+  it("returns 404 for unknown upload status", async () => {
+    const response = await handleUploadStatusRequest("missing-upload", {
+      getUploadStatus: vi.fn().mockResolvedValue(null),
+    });
+
+    expect(response.status).toBe(404);
+    await expect(response.json()).resolves.toEqual({
+      code: "UPLOAD_NOT_FOUND",
+      message: "Upload 'missing-upload' was not found.",
     });
   });
 });

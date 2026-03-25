@@ -1,48 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Track Legend
 
-## Getting Started
+Track Legend is a Next.js 16 app plus a BullMQ worker for telemetry upload and ingestion.
 
-First, run the development server:
+## Local app
+
+Run the app without Docker:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+pnpm prisma:generate
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Docker stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The Docker Compose stack now includes a one-shot `migrate` service. `app` and `worker` start only after Prisma migrations have been applied successfully.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Start the full stack:
+
+```bash
+docker compose up --build
+```
+
+Run only the migration step against the current database volume:
+
+```bash
+docker compose up --build migrate
+```
+
+The main recovery command for an existing volume with schema drift is:
+
+```bash
+docker compose run --rm migrate
+```
+
+Use the destructive fallback only for disposable local environments where losing data is acceptable:
+
+```bash
+docker compose down -v
+docker compose up --build
+```
+
+## Prisma operations
+
+Apply migrations outside Docker:
+
+```bash
+pnpm prisma:migrate:deploy
+```
+
+Generate the Prisma client:
+
+```bash
+pnpm prisma:generate
+```
+
+## Verification
+
+Backend checks:
+
+```bash
+pnpm test:backend
+pnpm lint
+pnpm build
+```
+
+Docker smoke check:
+
+```bash
+pnpm smoke:docker
+```
+
+The smoke check expects:
+
+- `POST /api/uploads` returns `201` with `status: "queued"`.
+- `GET /api/uploads/{uploadId}` reaches `done` with a real `sessionId`.
 
 ## Codex Subagents
 
 Project-scoped Codex agents live in `.codex/agents/`.
 
+- `analyst` reviews Jira work before implementation and checks readiness, necessity, dependencies, sequence, and missing inputs.
+- Use it before taking a task into active development when you want a go/no-go recommendation and dependency analysis.
 - `pencilUX` handles UX/UI implementation through Pencil MCP and .pen updates.
 - Scope is visual/layout interaction work only; do not use it for route, contract, or architecture changes.
 - `docWriter` updates documentation after coding tasks: project docs, agent usage rules, and architecture notes when needed.
 - Scope is architecture-level documentation only: core project tree, route/module boundaries, data/state approach, and key technical decisions.
 - Do not use it for micro-level UI behavior notes.
 
-Suggested sequence: `pencilUX` (UX/UI) -> main implementation agent (code) -> `docWriter` (architecture docs).
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Suggested sequence: `analyst` -> `pencilUX` or main implementation agent -> `docWriter`.

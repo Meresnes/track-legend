@@ -33,6 +33,7 @@ src/
     api/health/route.ts
     api/openapi.json/route.ts
     api/uploads/route.ts
+    api/uploads/[uploadId]/route.ts
     api/dev/errors/[status]/route.ts
     docs/api/page.tsx
   screens/
@@ -48,12 +49,15 @@ src/
   shared/
     api/client.ts
     api/errors.ts
+    api/uploads.ts
     ui/placeholder-card.tsx
   server/
     config.ts
     errors.ts
     prisma.ts
     redis.ts
+    data/
+      uploads.ts
     http/
       health.ts
       uploads.ts
@@ -72,6 +76,7 @@ src/
 - The workspace shell is under `src/app/(workspace)` and wraps the core product routes with shared navigation and layout.
 - Current core routes are `/upload`, `/sessions`, `/sessions/[sessionId]`, and `/compare`.
 - Backend route handlers live under `src/app/api`, with `/api/health` and `/api/uploads` as the platform HTTP boundary.
+- Upload status polling is served through `GET /api/uploads/[uploadId]`.
 - OpenAPI and backend docs routes are `/api/openapi.json` and `/docs/api`.
 - Route-level `error.tsx` and `not-found.tsx` files exist at both the root and workspace levels.
 - A small dev-only API route at `src/app/api/dev/errors/[status]/route.ts` is used to exercise error handling.
@@ -83,6 +88,7 @@ src/
 - `src/features` owns small interactive behaviors such as the dev error probe.
 - `src/screens` owns route-level compositions for upload, sessions, session detail, and compare.
 - `src/server` owns backend-only runtime code: validated config, dependency clients, storage, queue wiring, HTTP handler logic, and worker bootstrap.
+- `src/server/data` owns Prisma-backed persistence helpers shared by HTTP handlers and background workers.
 - `src/server/openapi` owns the OpenAPI contract document used by backend docs and API contract tests.
 - A dedicated entities/domain layer is intentionally deferred until real session/lap contracts exist.
 
@@ -90,9 +96,11 @@ src/
 - Use App Router route files only for routing and composition entrypoints; keep screen implementations in `src/screens`.
 - Keep Next.js as the single `app` service and expose backend HTTP endpoints through App Router route handlers instead of introducing a separate API service.
 - Run BullMQ processing as a separate worker process from `src/server/worker`, but keep it in the same repository and compose stack as the Next app.
+- In Docker Compose, run Prisma schema changes through a dedicated one-shot migration service before starting the app or worker.
 - Keep a single app shell (`src/widgets/app-shell`) for cross-route navigation and layout consistency.
 - Use a single shared API client and normalized API error shape in `src/shared/api`.
 - Use `src/server/http/*` for testable backend request handling and keep `src/app/api/*` thin entrypoints.
+- Persist upload lifecycle state in PostgreSQL so the upload screen can poll the same BFF for queued/running/done/error status.
 - Use a spec-first OpenAPI document as the source of truth for backend HTTP contracts.
 - Render interactive API docs with Scalar at `/docs/api`, backed by the local `/api/openapi.json` route.
 - Keep `screens` as the route-composition layer to avoid overloading `pages`, which is ambiguous in a Next.js codebase.
@@ -101,10 +109,12 @@ src/
 ## Data And State
 - `src/app/providers.tsx` wires TanStack Query and `sonner`.
 - `src/shared/api/client.ts` is the single fetch wrapper for API calls.
+- `src/shared/api/uploads.ts` owns the upload/create status DTOs and client helpers used by the upload screen.
 - `src/shared/api/errors.ts` defines `ApiError` and the global API error notification hook.
 - API failures are normalized into `ApiError` and reported through toast notifications.
 - Backend runtime configuration is validated in `src/server/config.ts`.
 - Prisma connectivity is centralized in `src/server/prisma.ts`; Redis connectivity and BullMQ wiring live in `src/server/redis.ts` and `src/server/queues/ingest.ts`.
+- Upload status is persisted as `Upload` records, and successful worker completion creates a minimal `Session` record before the UI redirects to `/sessions/[sessionId]`.
 - Local raw `.duckdb` uploads are stored through the `src/server/storage/upload-storage.ts` abstraction and shared between app and worker through a mounted volume.
 - Public backend contract definitions live in `src/server/openapi/track-legend.openapi.ts` and are exposed verbatim at `/api/openapi.json`.
 
