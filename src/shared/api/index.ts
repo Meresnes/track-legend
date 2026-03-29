@@ -7,6 +7,7 @@ export {
 } from "./errors";
 export {
   createUpload,
+  type UploadProcessingStage,
   getUploadStatus,
   type CreateUploadResponse,
   type UploadProcessingStatus,

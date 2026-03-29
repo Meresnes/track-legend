@@ -17,6 +17,7 @@
     "smoke:docker": "node scripts/docker-smoke.mjs"
   },
   "dependencies": {
+    "@duckdb/node-api": "1.5.1-r.1",
     "@prisma/client": "^6.6.0",
     "@scalar/api-reference-react": "^0.9.14",
     "@scalar/openapi-parser": "^0.25.6",

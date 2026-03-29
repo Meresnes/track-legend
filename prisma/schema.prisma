@@ -14,19 +14,73 @@ enum UploadStatus {
   error
 }
 
+enum IngestStage {
+  queued
+  open_duckdb
+  discover_schema
+  extract_raw_signals
+  segment_laps
+  normalize_distance
+  resample
+  persist_session
+  finalize
+}
+
 model Session {
   id             String   @id @default(uuid())
   sourceFilename String
+  sim            String   @default("LMU")
+  trackCode      String   @default("UNKNOWN_TRACK")
+  carClass       String   @default("UNKNOWN_CLASS")
+  referenceLapId String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
   upload         Upload?
+  laps           Lap[]     @relation("SessionLaps")
+  referenceLap   Lap?     @relation("SessionReferenceLap", fields: [referenceLapId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([createdAt])
+  @@index([trackCode, carClass])
+}
+
+model Lap {
+  id                  String    @id @default(uuid())
+  sessionId           String
+  session             Session   @relation("SessionLaps", fields: [sessionId], references: [id], onDelete: Cascade)
+  lapNumber           Int
+  isValid             Boolean   @default(true)
+  lapTimeMs           Int?
+  distanceM           Float?
+  samples             Sample[]
+  referenceForSession Session[] @relation("SessionReferenceLap")
+
+  @@unique([sessionId, lapNumber])
+  @@index([sessionId, lapTimeMs])
+}
+
+model Sample {
+  lapId     String
+  lap       Lap    @relation(fields: [lapId], references: [id], onDelete: Cascade)
+  idx       Int
+  tMs       Int
+  distM     Float
+  speedMs   Float?
+  throttle  Float?
+  brake     Float?
+  steering  Float?
+  gear      Int?
+
+  @@id([lapId, idx])
+  @@index([lapId, distM])
 }
 
 model Upload {
   id               String       @id
   status           UploadStatus
+  processingStage  IngestStage  @default(queued)
   originalFilename String
   storedPath       String
+  fileSizeBytes    Int          @default(0)
   sessionId        String?      @unique
   session          Session?     @relation(fields: [sessionId], references: [id], onDelete: SetNull)
   errorCode        String?
@@ -35,4 +89,6 @@ model Upload {
   updatedAt        DateTime     @updatedAt
   startedAt        DateTime?
   finishedAt       DateTime?
+
+  @@index([status, createdAt])
 }

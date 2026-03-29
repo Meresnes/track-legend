@@ -1,5 +1,6 @@
 import { Prisma, type PrismaClient, type Upload, type UploadStatus } from "@prisma/client";
 import { getPrismaClient } from "../prisma";
+import { type ProcessingStage } from "../ingest/types";
 
 export type UploadErrorPayload = {
   code: string;
@@ -9,6 +10,7 @@ export type UploadErrorPayload = {
 export type UploadStatusSnapshot = {
   uploadId: string;
   status: UploadStatus;
+  stage: ProcessingStage;
   sessionId: string | null;
   error: UploadErrorPayload | null;
 };
@@ -16,8 +18,10 @@ export type UploadStatusSnapshot = {
 export type UploadRecordForProcessing = {
   uploadId: string;
   status: UploadStatus;
+  stage: ProcessingStage;
   originalFilename: string;
   storedPath: string;
+  fileSizeBytes: number;
   sessionId: string | null;
 };
 
@@ -30,16 +34,23 @@ type UploadRecordInput = {
   uploadId: string;
   originalFilename: string;
   storedPath: string;
+  fileSizeBytes: number;
 };
 
 function getClient(client?: PrismaLike) {
   return client ?? getPrismaClient();
 }
 
-function mapUploadStatus(upload: Pick<Upload, "id" | "status" | "sessionId" | "errorCode" | "errorMessage">) {
+function mapUploadStatus(
+  upload: Pick<
+    Upload,
+    "id" | "status" | "processingStage" | "sessionId" | "errorCode" | "errorMessage"
+  >,
+) {
   return {
     uploadId: upload.id,
     status: upload.status,
+    stage: upload.processingStage,
     sessionId: upload.sessionId,
     error:
       upload.errorCode && upload.errorMessage
@@ -60,7 +71,9 @@ export async function createQueuedUploadRecord(
       id: input.uploadId,
       originalFilename: input.originalFilename,
       storedPath: input.storedPath,
+      fileSizeBytes: input.fileSizeBytes,
       status: "queued",
+      processingStage: "queued",
     },
   });
 }
@@ -84,6 +97,7 @@ export async function getUploadStatusSnapshot(
     select: {
       id: true,
       status: true,
+      processingStage: true,
       sessionId: true,
       errorCode: true,
       errorMessage: true,
@@ -104,8 +118,10 @@ export async function getUploadForProcessing(
     select: {
       id: true,
       status: true,
+      processingStage: true,
       originalFilename: true,
       storedPath: true,
+      fileSizeBytes: true,
       sessionId: true,
     },
   });
@@ -115,22 +131,45 @@ export async function getUploadForProcessing(
   return {
     uploadId: upload.id,
     status: upload.status,
+    stage: upload.processingStage,
     originalFilename: upload.originalFilename,
     storedPath: upload.storedPath,
+    fileSizeBytes: upload.fileSizeBytes,
     sessionId: upload.sessionId,
   } satisfies UploadRecordForProcessing;
 }
 
-export async function markUploadRunning(uploadId: string, client?: PrismaLike) {
+export async function markUploadRunning(
+  uploadId: string,
+  stage: ProcessingStage = "open_duckdb",
+  client?: PrismaLike,
+) {
   return getClient(client).upload.update({
     where: {
       id: uploadId,
     },
     data: {
       status: "running",
+      processingStage: stage,
       startedAt: new Date(),
+      finishedAt: null,
       errorCode: null,
       errorMessage: null,
+    },
+  });
+}
+
+export async function markUploadStage(
+  uploadId: string,
+  stage: ProcessingStage,
+  client?: PrismaLike,
+) {
+  return getClient(client).upload.update({
+    where: {
+      id: uploadId,
+    },
+    data: {
+      processingStage: stage,
     },
   });
 }
@@ -146,6 +185,7 @@ export async function markUploadDone(
     },
     data: {
       status: "done",
+      processingStage: "finalize",
       sessionId,
       errorCode: null,
       errorMessage: null,
@@ -157,6 +197,7 @@ export async function markUploadDone(
 export async function markUploadError(
   uploadId: string,
   error: UploadErrorPayload,
+  stage: ProcessingStage,
   client?: PrismaLike,
 ) {
   return getClient(client).upload.update({
@@ -165,24 +206,10 @@ export async function markUploadError(
     },
     data: {
       status: "error",
+      processingStage: stage,
       errorCode: error.code,
       errorMessage: error.message,
       finishedAt: new Date(),
-    },
-  });
-}
-
-export async function createSessionForUpload(
-  originalFilename: string,
-  client?: PrismaLike,
-) {
-  return getClient(client).session.create({
-    data: {
-      sourceFilename: originalFilename,
-    },
-    select: {
-      id: true,
-      sourceFilename: true,
     },
   });
 }

@@ -7,6 +7,7 @@ import {
   ApiError,
   createUpload,
   getUploadStatus,
+  type UploadProcessingStage,
   type UploadProcessingStatus,
   type UploadStatusResponse,
 } from "@/shared/api";
@@ -20,6 +21,42 @@ const statusCopy: Record<UploadProcessingStatus, string> = {
   done: "Session ready. Opening details...",
   error: "Processing failed",
 };
+
+const stageCopy: Record<UploadProcessingStage, string> = {
+  queued: "Queued",
+  open_duckdb: "Open DuckDB",
+  discover_schema: "Discover schema",
+  extract_raw_signals: "Extract raw signals",
+  segment_laps: "Segment laps",
+  normalize_distance: "Normalize distance",
+  resample: "Resample traces",
+  persist_session: "Persist session",
+  finalize: "Finalize",
+};
+
+const stageDescription: Record<UploadProcessingStage, string> = {
+  queued: "Upload accepted and waiting for a worker slot.",
+  open_duckdb: "Opening the telemetry export in read-only mode.",
+  discover_schema: "Inspecting DuckDB tables and mapping logical channels.",
+  extract_raw_signals: "Reading raw telemetry rows and session metadata.",
+  segment_laps: "Splitting the raw stream into lap candidates.",
+  normalize_distance: "Making lap distance monotonic and validating laps.",
+  resample: "Interpolating telemetry to a fixed comparison grid.",
+  persist_session: "Writing session, laps and samples to PostgreSQL.",
+  finalize: "Linking the upload to the created session and finishing.",
+};
+
+const orderedStages: UploadProcessingStage[] = [
+  "queued",
+  "open_duckdb",
+  "discover_schema",
+  "extract_raw_signals",
+  "segment_laps",
+  "normalize_distance",
+  "resample",
+  "persist_session",
+  "finalize",
+];
 
 function getLocalValidationError(file: File | null) {
   if (!file) return "Select a .duckdb file to continue.";
@@ -40,18 +77,20 @@ function getStatusDescription(
   }
 
   if (status.status === "queued") {
-    return "File saved. Waiting for an available worker slot.";
+    return stageDescription[status.stage];
   }
 
   if (status.status === "running") {
-    return "Worker is ingesting telemetry and creating a session.";
+    return stageDescription[status.stage];
   }
 
   if (status.status === "done") {
     return "Processing completed successfully.";
   }
 
-  return status.error?.message ?? "Upload processing failed.";
+  return status.error?.message
+    ? `Failed during ${stageCopy[status.stage]}. ${status.error.message}`
+    : `Upload processing failed during ${stageCopy[status.stage]}.`;
 }
 
 export default function UploadScreen() {
@@ -177,6 +216,8 @@ export default function UploadScreen() {
   const effectiveViewState = hasError ? "error" : viewState;
   const activeStatus =
     statusQuery.data?.status ?? (effectiveViewState === "uploading" ? "queued" : null);
+  const activeStage =
+    statusQuery.data?.stage ?? (effectiveViewState === "uploading" ? "queued" : null);
   const busy = uploadMutation.isPending || effectiveViewState === "polling";
 
   return (
@@ -224,6 +265,11 @@ export default function UploadScreen() {
               <p className="max-w-2xl text-sm text-[var(--tl-text-secondary)]">
                 {getStatusDescription(statusQuery.data, selectedFileName)}
               </p>
+              {activeStage ? (
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--tl-accent-primary)]">
+                  Stage: {stageCopy[activeStage]}
+                </p>
+              ) : null}
               {selectedFileName ? (
                 <p className="font-mono text-xs text-[var(--tl-text-muted)]">
                   Current file: {selectedFileName}
@@ -290,6 +336,41 @@ export default function UploadScreen() {
                 }`}
               >
                 {isActive ? "Current" : isComplete ? "Completed" : "Waiting"}
+              </div>
+            </PlaceholderCard>
+          );
+        })}
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-5">
+        {orderedStages.map((stage, index) => {
+          const currentIndex = activeStage ? orderedStages.indexOf(activeStage) : -1;
+          const isActive = activeStage === stage;
+          const isComplete =
+            currentIndex > index &&
+            activeStatus !== "error" &&
+            activeStatus !== null;
+          const isFailed = activeStatus === "error" && activeStage === stage;
+
+          return (
+            <PlaceholderCard
+              key={stage}
+              title={stageCopy[stage]}
+              description={stageDescription[stage]}
+              className={isActive ? "border-[var(--tl-accent-secondary)]" : ""}
+            >
+              <div
+                className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${
+                  isFailed
+                    ? "bg-[rgba(255,93,115,0.16)] text-[var(--tl-text-primary)]"
+                    : isActive
+                      ? "bg-[rgba(39,211,162,0.14)] text-[var(--tl-text-primary)]"
+                      : isComplete
+                        ? "bg-[rgba(92,168,255,0.16)] text-[var(--tl-text-primary)]"
+                        : "bg-[var(--tl-bg-elev-1)] text-[var(--tl-text-muted)]"
+                }`}
+              >
+                {isFailed ? "Failed" : isActive ? "Current" : isComplete ? "Completed" : "Waiting"}
               </div>
             </PlaceholderCard>
           );

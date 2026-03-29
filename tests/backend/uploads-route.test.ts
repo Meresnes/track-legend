@@ -59,6 +59,7 @@ describe("POST /api/uploads", () => {
       uploadId: "upload-1",
       originalFilename: "session.duckdb",
       storedPath: "/data/uploads/upload-1.duckdb",
+      fileSizeBytes: 9,
     });
     expect(enqueueUpload).toHaveBeenCalledWith(
       {
@@ -69,6 +70,7 @@ describe("POST /api/uploads", () => {
       }),
     );
     expect(body).toEqual({
+      stage: "queued",
       status: "queued",
       uploadId: "upload-1",
     });
@@ -153,6 +155,7 @@ describe("POST /api/uploads", () => {
       getUploadStatus: vi.fn().mockResolvedValue({
         uploadId: "upload-1",
         status: "done",
+        stage: "finalize",
         sessionId: "session-1",
         error: null,
       }),
@@ -162,6 +165,7 @@ describe("POST /api/uploads", () => {
     await expect(response.json()).resolves.toEqual({
       uploadId: "upload-1",
       status: "done",
+      stage: "finalize",
       sessionId: "session-1",
       error: null,
     });

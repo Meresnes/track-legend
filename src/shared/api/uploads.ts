@@ -2,10 +2,21 @@ import { apiClient } from "./client";
 import { ApiError } from "./errors";
 
 export type UploadProcessingStatus = "queued" | "running" | "done" | "error";
+export type UploadProcessingStage =
+  | "queued"
+  | "open_duckdb"
+  | "discover_schema"
+  | "extract_raw_signals"
+  | "segment_laps"
+  | "normalize_distance"
+  | "resample"
+  | "persist_session"
+  | "finalize";
 
 export type CreateUploadResponse = {
   uploadId: string;
   status: "queued";
+  stage: "queued";
 };
 
 export type UploadStatusError = {
@@ -16,6 +27,7 @@ export type UploadStatusError = {
 type RawUploadStatusResponse = {
   uploadId?: unknown;
   status?: unknown;
+  stage?: unknown;
   sessionId?: unknown;
   error?: unknown;
 };
@@ -23,12 +35,27 @@ type RawUploadStatusResponse = {
 export type UploadStatusResponse = {
   uploadId: string;
   status: UploadProcessingStatus;
+  stage: UploadProcessingStage;
   sessionId: string | null;
   error: UploadStatusError | null;
 };
 
 function isUploadStatus(value: unknown): value is UploadProcessingStatus {
   return value === "queued" || value === "running" || value === "done" || value === "error";
+}
+
+function isUploadStage(value: unknown): value is UploadProcessingStage {
+  return (
+    value === "queued" ||
+    value === "open_duckdb" ||
+    value === "discover_schema" ||
+    value === "extract_raw_signals" ||
+    value === "segment_laps" ||
+    value === "normalize_distance" ||
+    value === "resample" ||
+    value === "persist_session" ||
+    value === "finalize"
+  );
 }
 
 function parseUploadError(value: unknown): UploadStatusError | null {
@@ -56,7 +83,11 @@ function parseUploadError(value: unknown): UploadStatusError | null {
 }
 
 function parseUploadStatusResponse(payload: RawUploadStatusResponse): UploadStatusResponse {
-  if (typeof payload.uploadId !== "string" || !isUploadStatus(payload.status)) {
+  if (
+    typeof payload.uploadId !== "string" ||
+    !isUploadStatus(payload.status) ||
+    !isUploadStage(payload.stage)
+  ) {
     throw new ApiError({
       status: 500,
       code: "UPLOAD_STATUS_INVALID",
@@ -68,6 +99,7 @@ function parseUploadStatusResponse(payload: RawUploadStatusResponse): UploadStat
   return {
     uploadId: payload.uploadId,
     status: payload.status,
+    stage: payload.stage,
     sessionId: typeof payload.sessionId === "string" ? payload.sessionId : null,
     error: parseUploadError(payload.error),
   };
