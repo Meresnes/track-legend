@@ -34,6 +34,9 @@ src/
     api/openapi.json/route.ts
     api/uploads/route.ts
     api/uploads/[uploadId]/route.ts
+    api/sessions/route.ts
+    api/sessions/[sessionId]/laps/route.ts
+    api/sessions/[sessionId]/reference/route.ts
     api/dev/errors/[status]/route.ts
     docs/api/page.tsx
   screens/
@@ -50,6 +53,8 @@ src/
     api/client.ts
     api/errors.ts
     api/uploads.ts
+    api/sessions.ts
+    lib/lap-time.ts
     ui/placeholder-card.tsx
   server/
     config.ts
@@ -58,6 +63,7 @@ src/
     redis.ts
     data/
       uploads.ts
+      sessions.ts
     ingest/
       duckdb.ts
       errors.ts
@@ -68,6 +74,7 @@ src/
     http/
       health.ts
       uploads.ts
+      sessions.ts
     queues/ingest.ts
     storage/upload-storage.ts
     openapi/
@@ -83,6 +90,8 @@ src/
 - The workspace shell is under `src/app/(workspace)` and wraps the core product routes with shared navigation and layout.
 - Current core routes are `/upload`, `/sessions`, `/sessions/[sessionId]`, and `/compare`.
 - Backend route handlers live under `src/app/api`, with `/api/health` and `/api/uploads` as the platform HTTP boundary.
+- Session and lap review endpoints are exposed as `/api/sessions`, `/api/sessions/[sessionId]/laps`, and `/api/sessions/[sessionId]/reference`.
+- `GET /api/sessions/[sessionId]/laps` returns derived best-lap fields (`bestLapId`, `bestLapTimeMs`) so UI clients consume backend truth instead of recalculating fastest valid lap locally.
 - Upload status polling is served through `GET /api/uploads/[uploadId]`.
 - Upload create/status responses expose both coarse `status` and stage-level `processingStage` so the upload screen can render pipeline progress without inspecting worker logs.
 - OpenAPI and backend docs routes are `/api/openapi.json` and `/docs/api`.
@@ -122,6 +131,7 @@ src/
 - `src/app/providers.tsx` wires TanStack Query and `sonner`.
 - `src/shared/api/client.ts` is the single fetch wrapper for API calls.
 - `src/shared/api/uploads.ts` owns the upload/create status DTOs and client helpers used by the upload screen.
+- `src/shared/api/sessions.ts` owns session + lap list DTOs and reference lap mutations for the sessions screens.
 - `src/shared/api/errors.ts` defines `ApiError` and the global API error notification hook.
 - API failures are normalized into `ApiError` and reported through toast notifications.
 - Backend runtime configuration is validated in `src/server/config.ts`.

@@ -18,12 +18,16 @@ describe("OpenAPI document", () => {
     expect(document.paths).toHaveProperty("/api/health");
     expect(document.paths).toHaveProperty("/api/uploads");
     expect(document.paths).toHaveProperty("/api/uploads/{uploadId}");
+    expect(document.paths).toHaveProperty("/api/sessions");
+    expect(document.paths).toHaveProperty("/api/sessions/{sessionId}/laps");
+    expect(document.paths).toHaveProperty("/api/sessions/{sessionId}/reference");
   });
 
   it("includes required response codes and component schemas", () => {
     const document = getOpenApiDocument();
     const uploadPath = document.paths["/api/uploads"];
     const healthPath = document.paths["/api/health"];
+    const sessionLapsSchema = document.components?.schemas?.SessionLapListResponse;
 
     expect(uploadPath?.post?.responses).toHaveProperty("201");
     expect(uploadPath?.post?.responses).toHaveProperty("400");
@@ -38,6 +42,21 @@ describe("OpenAPI document", () => {
     expect(document.components?.schemas).toHaveProperty("UploadStage");
     expect(document.components?.schemas).toHaveProperty("UploadQueuedResponse");
     expect(document.components?.schemas).toHaveProperty("UploadStatusResponse");
+    expect(document.components?.schemas).toHaveProperty("SessionListItem");
+    expect(document.components?.schemas).toHaveProperty("SessionListResponse");
+    expect(document.components?.schemas).toHaveProperty("LapListItem");
+    expect(document.components?.schemas).toHaveProperty("SessionLapListResponse");
+    expect(document.components?.schemas).toHaveProperty("ReferenceLapUpdateResponse");
+    expect(sessionLapsSchema).toMatchObject({
+      properties: {
+        bestLapId: {
+          type: ["string", "null"],
+        },
+        bestLapTimeMs: {
+          type: ["integer", "null"],
+        },
+      },
+    });
   });
 
   it("configures Scalar to use the local OpenAPI route", () => {

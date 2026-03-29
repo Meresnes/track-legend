@@ -6,15 +6,11 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { href: "/upload", label: "Upload" },
   { href: "/sessions", label: "Sessions" },
-  { href: "/sessions/mock-session", label: "Laps" },
   { href: "/compare", label: "Compare" },
 ];
 
 function isActive(pathname: string, href: string): boolean {
-  if (href === "/sessions") return pathname === "/sessions";
-  if (href === "/sessions/mock-session") {
-    return pathname.startsWith("/sessions/") && pathname !== "/sessions";
-  }
+  if (href === "/sessions") return pathname.startsWith("/sessions");
   return pathname === href;
 }
 

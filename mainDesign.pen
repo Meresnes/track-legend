@@ -1,4 +1,4864 @@
 {
   "version": "2.9",
-  "children": []
+  "children": [
+    {
+      "type": "frame",
+      "id": "cnqwZ",
+      "x": 40,
+      "y": 40,
+      "name": "Track Legend / Design System Foundation",
+      "width": 1840,
+      "fill": "$color-bg-canvas",
+      "cornerRadius": 16,
+      "stroke": {
+        "thickness": 1,
+        "fill": "$color-border-subtle"
+      },
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 24,
+      "children": [
+        {
+          "type": "frame",
+          "id": "ALFXA",
+          "name": "head",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "children": [
+            {
+              "type": "text",
+              "id": "rvrrH",
+              "name": "title",
+              "fill": "$color-text-primary",
+              "content": "Track Legend — Foundation",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 36,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "ObjG7",
+              "name": "subtitle",
+              "fill": "$color-text-secondary",
+              "content": "Dark telemetry design tokens for Le Mans Ultimate post-session analysis",
+              "fontFamily": "IBM Plex Sans",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cOIDl",
+          "name": "rowA",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "VSl2q",
+              "name": "Color System",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": "$radius-card",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZJwTR",
+                  "name": "colorsTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Color System",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "WVaRQ",
+                  "name": "colorsHint",
+                  "fill": "$color-text-secondary",
+                  "content": "Background / surface / semantic / chart colors",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "vgA9b",
+                  "name": "colorsBlocks",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "1tuWk",
+                      "name": "bgSwatch",
+                      "width": "fill_container",
+                      "fill": "$color-bg-canvas",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "KF36j",
+                          "name": "bgText",
+                          "fill": "$color-text-secondary",
+                          "content": "BG #090C12",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "6QVVq",
+                      "name": "surfSwatch",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "IKmr1",
+                          "name": "surfText",
+                          "fill": "$color-text-secondary",
+                          "content": "Surface #182234",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FY6n1",
+                      "name": "accentSwatch",
+                      "width": "fill_container",
+                      "fill": "$color-accent-primary",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "4vPVZ",
+                          "name": "accentText",
+                          "fill": "#072119",
+                          "content": "Primary Accent",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "LITOx",
+                      "name": "semanticSwatch",
+                      "width": "fill_container",
+                      "fill": "$color-warning",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "KyH33",
+                          "name": "semanticText",
+                          "fill": "#2A1800",
+                          "content": "Warning",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "OJQNe",
+                      "name": "chartSwatch",
+                      "width": "fill_container",
+                      "fill": "$chart-steering",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "SETG8",
+                          "name": "chartText",
+                          "fill": "#1B0E29",
+                          "content": "Chart Steering",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Y37Zi",
+              "name": "Typography",
+              "width": 620,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": "$radius-card",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "htpcP",
+                  "name": "typoTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Typography",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "lRXs4",
+                  "name": "typeDisplay",
+                  "fill": "$color-text-primary",
+                  "content": "Display 48 — Lap Delta -0.412s",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 34,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "s2bGJ",
+                  "name": "typeHeading",
+                  "fill": "$color-text-primary",
+                  "content": "Heading 24 — Compare Workspace",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "H4p8H",
+                  "name": "typeBody",
+                  "fill": "$color-text-secondary",
+                  "content": "Body 14 — Focus on corners with biggest cumulative loss.",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "oNYAF",
+                  "name": "typeCaption",
+                  "fill": "$color-text-muted",
+                  "content": "Caption 12 — Session processed 18s ago",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "3xueD",
+                  "name": "typeMono",
+                  "fill": "$color-accent-secondary",
+                  "content": "Mono 13 — VMAX 278.4 km/h | Sector2 +0.137",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xu4nC",
+          "name": "rowB",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "9kCPJ",
+              "name": "Spacing Scale",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": "$radius-card",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "SKaRv",
+                  "name": "spaceTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Spacing Scale",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "IMhtj",
+                  "name": "spaceHint",
+                  "fill": "$color-text-secondary",
+                  "content": "4 / 8 / 12 / 16 / 24 / 32 / 40 / 48 / 64",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "nUes6",
+                  "name": "spaceRow",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "FVOeg",
+                      "name": "sp4",
+                      "width": 18,
+                      "height": 14,
+                      "fill": "$color-accent-secondary",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "iFG0y",
+                      "name": "sp8",
+                      "opacity": 0.88,
+                      "width": 26,
+                      "height": 14,
+                      "fill": "$color-accent-secondary",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jmMC3",
+                      "name": "sp16",
+                      "opacity": 0.78,
+                      "width": 42,
+                      "height": 14,
+                      "fill": "$color-accent-secondary",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "m9zSI",
+                      "name": "sp24",
+                      "opacity": 0.68,
+                      "width": 58,
+                      "height": 14,
+                      "fill": "$color-accent-secondary",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "3Xtel",
+                      "name": "sp32",
+                      "opacity": 0.58,
+                      "width": 74,
+                      "height": 14,
+                      "fill": "$color-accent-secondary",
+                      "cornerRadius": 4
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JqVA8",
+              "name": "Radius & Borders",
+              "width": 620,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": "$radius-card",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "MRzE9",
+                  "name": "radiusTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Radius / Borders / Shadow",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "w8EpG",
+                  "name": "radiusRow",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "2ew8a",
+                      "name": "inputShape",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": "$radius-input",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bQZHb",
+                          "name": "inputText",
+                          "fill": "$color-text-secondary",
+                          "content": "Input r8",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "2rBFb",
+                      "name": "cardShape",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": "$radius-card",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000003A",
+                        "offset": {
+                          "x": 0,
+                          "y": 4
+                        },
+                        "blur": 10
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qCA8Q",
+                          "name": "cardText",
+                          "fill": "$color-text-secondary",
+                          "content": "Card r12",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ANVah",
+                      "name": "panelShape",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": "$radius-panel",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-strong"
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "5YABH",
+                          "name": "panelText",
+                          "fill": "$color-text-secondary",
+                          "content": "Panel r14",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jmH6Q",
+          "name": "rowC",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "kQzuN",
+              "name": "Grid & Layout",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": "$radius-card",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "SlenA",
+                  "name": "gridTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Grid / Layout",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "vuPQQ",
+                  "name": "gridHint",
+                  "fill": "$color-text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Desktop-first: 12-column @ 1440, Laptop 8-column @ 1200, Tablet single-column fallback",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "We9nJ",
+                  "name": "gridCanvas",
+                  "width": "fill_container",
+                  "height": 170,
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "gap": 10,
+                  "padding": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "17GGI",
+                      "name": "col1",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#274D7F66",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "WQ7VJ",
+                      "name": "col2",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#274D7F66",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sE724",
+                      "name": "col3",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#274D7F66",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Bfme7",
+                      "name": "col4",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#274D7F66",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "0yv8t",
+                      "name": "col5",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#274D7F66",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "TH2Fu",
+                      "name": "col6",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#274D7F66",
+                      "cornerRadius": 4
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "zjEGo",
+              "name": "State Palette",
+              "width": 620,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": "$radius-card",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "58XCh",
+                  "name": "stateTitle",
+                  "fill": "$color-text-primary",
+                  "content": "State Palette",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "I7O2c",
+                  "name": "stateHint",
+                  "fill": "$color-text-secondary",
+                  "content": "Consistent semantics for upload/processing/analysis flows",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "1Tc4D",
+                  "name": "stateRow",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "fkwoy",
+                      "name": "successPill",
+                      "fill": "#133625",
+                      "cornerRadius": 999,
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "vUAMO",
+                          "name": "successTxt",
+                          "fill": "$color-success",
+                          "content": "Success",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "B1Zoj",
+                      "name": "warnPill",
+                      "fill": "#3E2A10",
+                      "cornerRadius": 999,
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "6fkU4",
+                          "name": "warnTxt",
+                          "fill": "$color-warning",
+                          "content": "Warning",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "X5Ghn",
+                      "name": "errorPill",
+                      "fill": "#451B25",
+                      "cornerRadius": 999,
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "d08NS",
+                          "name": "errorTxt",
+                          "fill": "$color-error",
+                          "content": "Error",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "9liFD",
+                      "name": "infoPill",
+                      "fill": "#122C4A",
+                      "cornerRadius": 999,
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "oE3wH",
+                          "name": "infoTxt",
+                          "fill": "$color-info",
+                          "content": "Info",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "2G4hj",
+                      "name": "procPill",
+                      "fill": "#1E2A3A",
+                      "cornerRadius": 999,
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Oe1Jy",
+                          "name": "procTxt",
+                          "fill": "$color-accent-secondary",
+                          "content": "Processing",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "y3Tul",
+      "x": 40,
+      "y": 1420,
+      "name": "Track Legend / UI Kit",
+      "width": 1840,
+      "fill": "$color-bg-canvas",
+      "cornerRadius": 16,
+      "stroke": {
+        "thickness": 1,
+        "fill": "$color-border-subtle"
+      },
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 24,
+      "children": [
+        {
+          "type": "frame",
+          "id": "b4kVI",
+          "name": "kitHead",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "children": [
+            {
+              "type": "text",
+              "id": "gCRwm",
+              "name": "kitTitle",
+              "fill": "$color-text-primary",
+              "content": "Track Legend — UI Kit",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 36,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "jHjPX",
+              "name": "kitSub",
+              "fill": "$color-text-secondary",
+              "content": "MVP components for upload, sessions, comparison and insights",
+              "fontFamily": "IBM Plex Sans",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "fQyuP",
+          "name": "kitRow1",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "giIug",
+              "name": "Navigation",
+              "width": 520,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": "$radius-card",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "v6DN7",
+                  "name": "navTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Navigation",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "jopVm",
+                  "name": "navHeader",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "padding": [
+                    10,
+                    12
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YLOPp",
+                      "name": "logo",
+                      "fill": "$color-text-primary",
+                      "content": "Track Legend",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nPy2w",
+                      "name": "userPill",
+                      "fill": "$color-bg-elev-3",
+                      "cornerRadius": 999,
+                      "padding": [
+                        6,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "HSHqt",
+                          "name": "userTxt",
+                          "fill": "$color-text-secondary",
+                          "content": "M. Rossi",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "MEfGR",
+                  "name": "breadcrumb",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YHtoU",
+                      "name": "crumb1",
+                      "fill": "$color-text-secondary",
+                      "content": "Sessions",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "T7Bmn",
+                      "name": "crumbSep",
+                      "fill": "$color-text-muted",
+                      "content": "/",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "aQvBu",
+                      "name": "crumb2",
+                      "fill": "$color-text-primary",
+                      "content": "LMU - Monza",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dHQoL",
+                  "name": "navItems",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "RXpGQ",
+                      "name": "navActive",
+                      "width": "fill_container",
+                      "fill": "#163246",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-accent-secondary"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "FGhjj",
+                          "name": "navActiveTxt",
+                          "fill": "$color-text-primary",
+                          "content": "Session Review",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hJ2Ha",
+                      "name": "navItem2",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "VYvUF",
+                          "name": "navItem2Txt",
+                          "fill": "$color-text-secondary",
+                          "content": "Lap Compare",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LMIXX",
+              "name": "Inputs",
+              "width": 620,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": "$radius-card",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "V0ABZ",
+                  "name": "inputTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Inputs",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "EqGLQ",
+                  "name": "btnRow",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "p5tpb",
+                      "name": "btnPrimary",
+                      "fill": "$color-accent-primary",
+                      "cornerRadius": 8,
+                      "padding": [
+                        8,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LxRfj",
+                          "name": "btnPrimaryTxt",
+                          "fill": "#062117",
+                          "content": "Upload Session",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jjcAX",
+                      "name": "btnSecondary",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-strong"
+                      },
+                      "padding": [
+                        8,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qpSpm",
+                          "name": "btnSecondaryTxt",
+                          "fill": "$color-text-primary",
+                          "content": "Compare",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "NS84n",
+                  "name": "textInput",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "padding": [
+                    10,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SckPL",
+                      "name": "textInputTxt",
+                      "fill": "$color-text-muted",
+                      "content": "Reference lap name",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "O7N69",
+                  "name": "dropzone",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-strong"
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "3pFWq",
+                      "name": "dropzoneTxt",
+                      "fill": "$color-text-primary",
+                      "content": "Drop .duckdb file or click to browse",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Z9RPP",
+                      "name": "dropzoneHint",
+                      "fill": "$color-text-secondary",
+                      "content": "Le Mans Ultimate telemetry export only",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TkBXT",
+                  "name": "selectField",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "padding": [
+                    10,
+                    12
+                  ],
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2Rhry",
+                      "name": "selectTxt",
+                      "fill": "$color-text-primary",
+                      "content": "Track: Monza GP",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "2I8sl",
+              "name": "Data Display",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": "$radius-card",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xeky2",
+                  "name": "dataTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Data Display",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "de0lQ",
+                  "name": "dataCard",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gF9V8",
+                      "name": "dataCardTitle",
+                      "fill": "$color-text-secondary",
+                      "content": "Stat Card — Best Lap",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Zhsjd",
+                      "name": "dataCardValue",
+                      "fill": "$color-text-primary",
+                      "content": "1:46.218",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 24,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "KSgOD",
+                      "name": "statusPill",
+                      "fill": "#133625",
+                      "cornerRadius": 999,
+                      "padding": [
+                        5,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "gNlrk",
+                          "name": "statusTxt",
+                          "fill": "$color-success",
+                          "content": "Processed",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "8baV8",
+                  "name": "tableFrame",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "FDEgf",
+                      "name": "rowHead",
+                      "width": "fill_container",
+                      "padding": [
+                        6,
+                        8
+                      ],
+                      "justifyContent": "space_between",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "MeV1X",
+                          "name": "hLap",
+                          "fill": "$color-text-secondary",
+                          "content": "Lap",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "bgAKU",
+                          "name": "hTime",
+                          "fill": "$color-text-secondary",
+                          "content": "Time",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "45XnS",
+                      "name": "row1",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-3",
+                      "cornerRadius": 6,
+                      "padding": [
+                        6,
+                        8
+                      ],
+                      "justifyContent": "space_between",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qlsDv",
+                          "name": "lap1",
+                          "fill": "$color-text-primary",
+                          "content": "Lap 7",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "IO8tZ",
+                          "name": "time1",
+                          "fill": "$color-text-primary",
+                          "content": "1:46.218",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "4WdCZ",
+                      "name": "row2",
+                      "width": "fill_container",
+                      "padding": [
+                        6,
+                        8
+                      ],
+                      "justifyContent": "space_between",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "NGdUZ",
+                          "name": "lap2",
+                          "fill": "$color-text-secondary",
+                          "content": "Lap 8",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "etqzt",
+                          "name": "time2",
+                          "fill": "$color-text-secondary",
+                          "content": "1:46.411",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "0ewDm",
+          "name": "kitRow2",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "kSjf3",
+              "name": "Telemetry Components",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": "$radius-card",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "WWYAe",
+                  "name": "telemetryTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Telemetry-specific",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "T9NtM",
+                  "name": "lapRow",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "82VIl",
+                      "name": "lapA",
+                      "fill": "$chart-lap-a",
+                      "content": "Lap A 1:46.218",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FNqiW",
+                      "name": "lapB",
+                      "fill": "$chart-lap-b",
+                      "content": "Lap B 1:46.630",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nOrSM",
+                      "name": "refPill",
+                      "fill": "#123645",
+                      "cornerRadius": 999,
+                      "padding": [
+                        5,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "MsLw8",
+                          "name": "refTxt",
+                          "fill": "$color-accent-secondary",
+                          "content": "Reference",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YD5AQ",
+                  "name": "legendRow",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jjk5l",
+                      "name": "legendA",
+                      "fill": "$chart-speed",
+                      "content": "Speed",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kGKDD",
+                      "name": "legendB",
+                      "fill": "$chart-throttle",
+                      "content": "Throttle",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "LVAd7",
+                      "name": "legendC",
+                      "fill": "$chart-brake",
+                      "content": "Brake",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "6v9ir",
+                  "name": "cornerRow",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ONqug",
+                      "name": "cornerTxt",
+                      "fill": "$color-text-primary",
+                      "content": "T1 Rettifilo  +0.184s  • Click to zoom",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "QBGxI",
+                  "name": "insightCard",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wKMVI",
+                      "name": "insightTitle",
+                      "fill": "$color-text-primary",
+                      "content": "Insight: Late throttle at T3",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cTuFM",
+                      "name": "insightBody",
+                      "fill": "$color-text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Throttle re-application is +0.23s later vs reference. Focus on earlier partial throttle after apex.",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "39KCZ",
+                  "name": "metricTile",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "RChLq",
+                      "name": "metricK",
+                      "fill": "$color-text-secondary",
+                      "content": "Max Speed",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "0z0kX",
+                      "name": "metricV",
+                      "fill": "$color-text-primary",
+                      "content": "278.4 km/h",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WC5ze",
+              "name": "Feedback States",
+              "width": 620,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": "$radius-card",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "H4bZ4",
+                  "name": "feedbackTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Feedback",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "yVi1b",
+                  "name": "toast",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "padding": [
+                    10,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "nGzV4",
+                      "name": "toastTxt",
+                      "fill": "$color-text-primary",
+                      "content": "Session imported successfully",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "PDqp8",
+                  "name": "banner",
+                  "width": "fill_container",
+                  "fill": "#451B25",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-error"
+                  },
+                  "padding": [
+                    10,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "1H2UZ",
+                      "name": "bannerTxt",
+                      "fill": "$color-error",
+                      "content": "Unsupported track for MVP build",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "43BYz",
+                  "name": "inlineError",
+                  "fill": "$color-warning",
+                  "content": "Missing channel: steering_angle",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "KjBDG",
+                  "name": "skel",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Ue8qv",
+                      "name": "skel1",
+                      "width": "fill_container",
+                      "height": 10,
+                      "fill": "#263853",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "iyv84",
+                      "name": "skel2",
+                      "width": "fill_container",
+                      "height": 10,
+                      "fill": "#23344D",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "8unv9",
+                      "name": "skel3",
+                      "width": 220,
+                      "height": 10,
+                      "fill": "#203048",
+                      "cornerRadius": 4
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dKw2L",
+                  "name": "processing",
+                  "fill": "#1E2A3A",
+                  "cornerRadius": 999,
+                  "gap": 8,
+                  "padding": [
+                    6,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "y8A18",
+                      "name": "procDot",
+                      "fill": "$color-accent-secondary",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "mLYRA",
+                      "name": "procTxt",
+                      "fill": "$color-text-secondary",
+                      "content": "Processing telemetry",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iOL9f",
+                  "name": "emptyBlock",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "vertical",
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "d11Ba",
+                      "name": "emptyText",
+                      "fill": "$color-text-secondary",
+                      "content": "No sessions yet. Upload your first .duckdb file.",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Xjxet",
+      "x": 40,
+      "y": 2960,
+      "name": "Track Legend / UX Layouts",
+      "width": 1840,
+      "fill": "$color-bg-canvas",
+      "cornerRadius": 16,
+      "stroke": {
+        "thickness": 1,
+        "fill": "$color-border-subtle"
+      },
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 24,
+      "children": [
+        {
+          "type": "frame",
+          "id": "ucxxp",
+          "name": "pagesHead",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "children": [
+            {
+              "type": "text",
+              "id": "qeaID",
+              "name": "pagesTitle",
+              "fill": "$color-text-primary",
+              "content": "Track Legend — Page Layouts",
+              "fontFamily": "Space Grotesk",
+              "fontSize": 36,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "B4RE4",
+              "name": "pagesSub",
+              "fill": "$color-text-secondary",
+              "content": "End-to-end UX for upload, review, compare and insights",
+              "fontFamily": "IBM Plex Sans",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LjTE0",
+          "name": "row1",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "b60MM",
+              "name": "App Shell",
+              "width": "fill_container",
+              "height": 420,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "QhrAm",
+                  "name": "appTitle",
+                  "fill": "$color-text-primary",
+                  "content": "1) App Shell / Layout",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "5bWj1",
+                  "name": "shellTop",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kudOb",
+                      "name": "shellTopTxt",
+                      "fill": "$color-text-secondary",
+                      "content": "Global header • breadcrumb • profile",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ucC8B",
+                  "name": "shellBody",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "8LPI1",
+                      "name": "sidebar",
+                      "width": 118,
+                      "height": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "8Te2I",
+                          "name": "sideItem1",
+                          "fill": "$color-text-primary",
+                          "content": "Sessions",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "sMop0",
+                          "name": "sideItem2",
+                          "fill": "$color-text-secondary",
+                          "content": "Compare",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "D2AvV",
+                      "name": "shellContent",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "fx5B0",
+                          "name": "shellBreadcrumb",
+                          "fill": "$color-text-secondary",
+                          "content": "Session / LMU / Monza / Context",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "aB0ii",
+                          "name": "shellCard1",
+                          "width": "fill_container",
+                          "height": 120,
+                          "fill": "$color-bg-elev-2",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          }
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Pffmx",
+                          "name": "shellCard2",
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "fill": "$color-bg-elev-2",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "1vGPT",
+              "name": "Upload Page",
+              "width": "fill_container",
+              "height": 420,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "y8lU3",
+                  "name": "uploadTitle",
+                  "fill": "$color-text-primary",
+                  "content": "2) Upload & Ingestion",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "AaS4i",
+                  "name": "upContext",
+                  "fill": "$color-text-secondary",
+                  "content": "Drop file → queued → running → done/error",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "kmwsS",
+                  "name": "upDrop",
+                  "width": "fill_container",
+                  "height": 176,
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-strong"
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bLKGr",
+                      "name": "upDropTxt",
+                      "fill": "$color-text-primary",
+                      "content": "Drop telemetry .duckdb",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "P873a",
+                      "name": "upHint",
+                      "fill": "$color-text-secondary",
+                      "content": "Supported: Le Mans Ultimate export",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "rjz6O",
+                  "name": "upStatus",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "h8PKV",
+                      "name": "upStatus1",
+                      "fill": "$color-success",
+                      "content": "Upload: 100%",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "4wOvP",
+                      "name": "upStatus2",
+                      "fill": "$color-accent-secondary",
+                      "content": "Processing: running (extracting laps)",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QPC05",
+                      "name": "upStatus3",
+                      "fill": "$color-text-secondary",
+                      "content": "On success: redirect to Session Detail",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "CbXbB",
+              "name": "Sessions List",
+              "width": "fill_container",
+              "height": 420,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "LBgGO",
+                  "name": "sessionsTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Sessions",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "G0niV",
+                  "name": "sessSub",
+                  "fill": "$color-text-secondary",
+                  "content": "Review imported sessions and open lap analysis.",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "vuhYH",
+                  "name": "sessFilter",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "qbOG5",
+                      "name": "sessSearch",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "dm8Fb",
+                          "name": "sessSearchTxt",
+                          "fill": "$color-text-muted",
+                          "content": "Search by track or car...",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "aROem",
+                      "name": "sessChip",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LwomS",
+                          "name": "sessChipTxt",
+                          "fill": "$color-text-secondary",
+                          "content": "Track: All",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "IBxV3",
+                  "name": "sessTable",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "6yl2h",
+                      "name": "sessHead",
+                      "fill": "$color-text-secondary",
+                      "content": "Date • Track • Car • Laps • Best • Reference",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Sh59f",
+                      "name": "sessRow1",
+                      "fill": "$color-text-primary",
+                      "content": "22 Mar • Monza • Hypercar • 14 • 1:46.218 • Ref Lap 9",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rH4iY",
+                      "name": "sessRow2",
+                      "fill": "$color-warning",
+                      "content": "21 Mar • Spa • LMP2 • 18 • 1:58.402 • No reference",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Eivnp",
+          "name": "row2",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "NnCO7",
+              "name": "Session Detail / Laps",
+              "width": "fill_container",
+              "height": 460,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "UZIPX",
+                  "name": "detailTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Session Detail",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "cdYZy",
+                  "name": "detailSummary",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "padding": [
+                    8,
+                    10
+                  ],
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "5y4Ip",
+                      "name": "detailSummaryTxt",
+                      "fill": "$color-text-primary",
+                      "content": "Monza • LMU • Hypercar • 14 laps • Best 1:46.218",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "0BKSD",
+                  "name": "lapsTable",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bFEou",
+                      "name": "lapsHead",
+                      "fill": "$color-text-secondary",
+                      "content": "Lap | Time | Status | Flags | Action",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BOaen",
+                      "name": "lapA",
+                      "width": "fill_container",
+                      "fill": "#15314A",
+                      "cornerRadius": 6,
+                      "padding": [
+                        6,
+                        8
+                      ],
+                      "justifyContent": "space_between",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "pJSC9",
+                          "name": "lapATxt",
+                          "fill": "$chart-lap-a",
+                          "content": "Lap 7 | 1:46.218 | Valid | BEST",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NrwgL",
+                      "name": "lapRef",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-3",
+                      "cornerRadius": 6,
+                      "padding": [
+                        6,
+                        8
+                      ],
+                      "justifyContent": "space_between",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "7JxD2",
+                          "name": "lapRefTxt",
+                          "fill": "$color-accent-secondary",
+                          "content": "Lap 9 | 1:46.503 | Valid | REFERENCE",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "1WXkx",
+                      "name": "lapSetRef",
+                      "fill": "$color-bg-elev-3",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-strong"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "TtPGM",
+                          "name": "lapSetRefTxt",
+                          "fill": "$color-text-primary",
+                          "content": "Set as reference",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sJASu",
+                      "name": "compareCta",
+                      "fill": "$color-accent-primary",
+                      "cornerRadius": 8,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "maG6x",
+                          "name": "compareCtaTxt",
+                          "fill": "#062117",
+                          "content": "Compare vs reference",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EAMrd",
+              "name": "Shared States",
+              "width": 560,
+              "height": 460,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "nfSUf",
+                  "name": "sharedTitle",
+                  "fill": "$color-text-primary",
+                  "content": "6) Shared States",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "qk3c9",
+                  "name": "sharedGuide",
+                  "fill": "$color-text-secondary",
+                  "content": "Core UX states for MVP reliability",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "qFgH3",
+                  "name": "st1",
+                  "fill": "$color-text-primary",
+                  "content": "Loading: show skeleton rows + chart placeholders",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "WIqhW",
+                  "name": "st2",
+                  "fill": "$color-text-secondary",
+                  "content": "Empty: no sessions yet",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "k5xFg",
+                  "name": "st3",
+                  "fill": "$color-accent-secondary",
+                  "content": "Processing: queued / running / done",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "EUcJO",
+                  "name": "st4",
+                  "fill": "$color-warning",
+                  "content": "Validation error: invalid .duckdb file",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "e3bYk",
+                  "name": "st5",
+                  "fill": "$color-warning",
+                  "content": "Unsupported track: currently Monza/Spa only",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "uJgpv",
+                  "name": "st6",
+                  "fill": "$color-warning",
+                  "content": "Missing channels: steer/brake/throttle required",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "rpnBP",
+                  "name": "st7",
+                  "fill": "$color-error",
+                  "content": "Generic backend error: show retry + support id",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "graPe",
+                  "name": "sharedToast",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "padding": [
+                    10,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fy0ft",
+                      "name": "sharedToastTxt",
+                      "fill": "$color-text-primary",
+                      "content": "Toast: Reference lap changed",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "koMO8",
+              "name": "Compare (Compact)",
+              "width": "fill_container",
+              "height": 460,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "TmPtg",
+                  "name": "compareTitle",
+                  "fill": "$color-text-primary",
+                  "content": "5) Compare",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "DvswQ",
+                  "name": "compareControls",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "yy1qz",
+                      "name": "ctrlA",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Z8Kw1",
+                          "name": "ctrlATxt",
+                          "fill": "$chart-lap-a",
+                          "content": "Lap A: 7",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Y4amZ",
+                      "name": "ctrlB",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "pkv2D",
+                          "name": "ctrlBTxt",
+                          "fill": "$chart-lap-b",
+                          "content": "Lap B: 9",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "GrHra",
+                  "name": "compareMeta",
+                  "fill": "$color-text-secondary",
+                  "content": "Delta +0.285s • Sync ON • Zoom 45-62%",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "KsW3g",
+                  "name": "chartStack",
+                  "width": "fill_container",
+                  "height": 188,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "o8oHP",
+                      "name": "chart1",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 6
+                    },
+                    {
+                      "type": "frame",
+                      "id": "CgD35",
+                      "name": "chart2",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 6
+                    },
+                    {
+                      "type": "frame",
+                      "id": "4Jf70",
+                      "name": "chart3",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 6
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ctvPr",
+                      "name": "chart4",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 6
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LMyRB",
+                  "name": "cornerTable",
+                  "width": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GsBwG",
+                      "name": "cornerHeader",
+                      "fill": "$color-text-secondary",
+                      "content": "Corner losses",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "99zjO",
+                      "name": "cornerRow1",
+                      "fill": "$color-text-primary",
+                      "content": "T1 +0.184s | T3 +0.232s | T7 +0.119s",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "zIin2",
+                  "name": "insightMini",
+                  "fill": "$color-warning",
+                  "content": "Insight: brake release late at T3",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "2vn6J",
+          "name": "row3",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "wDwY4",
+              "name": "Compare Deep Dive Workspace",
+              "width": "fill_container",
+              "height": 1180,
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": 12,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qoFv4",
+                  "name": "compareDeepTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Compare Page — MVP Recommended Layout",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "5plVU",
+                  "name": "deepTop",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GvPdq",
+                      "name": "selA",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "4yZ8K",
+                          "name": "selATxt",
+                          "fill": "$chart-lap-a",
+                          "content": "Lap A (candidate): #7 1:46.218",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Xdczk",
+                      "name": "selB",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "V3Vax",
+                          "name": "selBTxt",
+                          "fill": "$chart-lap-b",
+                          "content": "Lap B (reference): #9 1:46.503",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FlmDv",
+                      "name": "resetBtn",
+                      "fill": "$color-bg-elev-3",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-strong"
+                      },
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "saWej",
+                          "name": "resetTxt",
+                          "fill": "$color-text-primary",
+                          "content": "Reset zoom",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "iAXxp",
+                  "name": "metaText",
+                  "fill": "$color-text-secondary",
+                  "content": "Delta +0.285s • Sector split +0.072 / +0.137 / +0.076 • Sync cursor ON",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "obvIw",
+                  "name": "interactionText",
+                  "fill": "$color-text-secondary",
+                  "content": "Interactions: click corner row or insight card to focus chart range",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "5tpbQ",
+                  "name": "deepMain",
+                  "width": "fill_container",
+                  "height": 900,
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "FVG6n",
+                      "name": "deepCharts",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "j5vDg",
+                          "name": "speedChart",
+                          "width": "fill_container",
+                          "height": 150,
+                          "fill": "$color-bg-elev-2",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "tOVbS",
+                              "name": "speedLbl",
+                              "fill": "$chart-speed",
+                              "content": "Speed overlay",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "trsXg",
+                          "name": "throttleChart",
+                          "width": "fill_container",
+                          "height": 150,
+                          "fill": "$color-bg-elev-2",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "xSWKk",
+                              "name": "throttleLbl",
+                              "fill": "$chart-throttle",
+                              "content": "Throttle overlay",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "BesYm",
+                          "name": "brakeChart",
+                          "width": "fill_container",
+                          "height": 150,
+                          "fill": "$color-bg-elev-2",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "VaPFJ",
+                              "name": "brakeLbl",
+                              "fill": "$chart-brake",
+                              "content": "Brake overlay",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "I3uAp",
+                          "name": "steeringChart",
+                          "width": "fill_container",
+                          "height": 150,
+                          "fill": "$color-bg-elev-2",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "N7zUg",
+                              "name": "steeringLbl",
+                              "fill": "$chart-steering",
+                              "content": "Steering overlay",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "zel9s",
+                          "name": "deltaBar",
+                          "width": "fill_container",
+                          "height": 38,
+                          "fill": "#3C3313",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$chart-delta"
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "kLOpr",
+                              "name": "deltaLbl",
+                              "fill": "$chart-delta",
+                              "content": "Delta time ribbon",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "C3LIO",
+                      "name": "deepSidebar",
+                      "width": 360,
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "5iM3Z",
+                          "name": "sidebarCorner",
+                          "width": "fill_container",
+                          "height": 420,
+                          "fill": "$color-bg-elev-2",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "layout": "vertical",
+                          "gap": 6,
+                          "padding": 10,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "jtu13",
+                              "name": "cornerTitle",
+                              "fill": "$color-text-primary",
+                              "content": "Corner losses table",
+                              "fontFamily": "Space Grotesk",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "uuh4g",
+                              "name": "corner1",
+                              "fill": "$color-text-primary",
+                              "content": "T1 Rettifilo  +0.184s",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "nUuUZ",
+                              "name": "corner2",
+                              "fill": "$color-text-primary",
+                              "content": "T3 Roggia  +0.232s",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "V6jcD",
+                              "name": "corner3",
+                              "fill": "$color-text-primary",
+                              "content": "T7 Ascari  +0.119s",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "RnjGi",
+                              "name": "cornerHint",
+                              "fill": "$color-text-secondary",
+                              "content": "Click corner row → zoom charts",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ZX7gZ",
+                          "name": "insights",
+                          "width": "fill_container",
+                          "height": 420,
+                          "fill": "$color-bg-elev-2",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "layout": "vertical",
+                          "gap": 6,
+                          "padding": 10,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "0XZoG",
+                              "name": "insightHead",
+                              "fill": "$color-text-primary",
+                              "content": "Rule-based insights",
+                              "fontFamily": "Space Grotesk",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "MBxBH",
+                              "name": "insight1",
+                              "fill": "$color-warning",
+                              "content": "Early braking before T1 marker",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "4OKKT",
+                              "name": "insight2",
+                              "fill": "$color-warning",
+                              "content": "Throttle pickup is later at T3 apex exit",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "KT4he",
+                              "name": "insightHint",
+                              "fill": "$color-text-secondary",
+                              "content": "Click insight → focus segment",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "al2Mo",
+      "x": 40,
+      "y": 5860,
+      "name": "Track Legend / Compare Page v2 (Track Segments)",
+      "width": 1840,
+      "fill": "$color-bg-canvas",
+      "cornerRadius": 16,
+      "stroke": {
+        "thickness": 1,
+        "fill": "$color-border-subtle"
+      },
+      "layout": "vertical",
+      "gap": 16,
+      "padding": 20,
+      "children": [
+        {
+          "type": "text",
+          "id": "QoCXr",
+          "name": "boardTitle",
+          "fill": "$color-text-primary",
+          "content": "Compare Page v2 - Interactive Track Segment Map",
+          "fontFamily": "Space Grotesk",
+          "fontSize": 34,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "mhHIT",
+          "name": "boardSub",
+          "fill": "$color-text-secondary",
+          "content": "Wireframe and UX layout for corner-based analysis using corners startDistM/endDistM",
+          "fontFamily": "IBM Plex Sans",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "8qSbe",
+          "name": "recLabel",
+          "fill": "$color-accent-primary",
+          "content": "Recommended Layout A (chosen): Left sticky Track Map + Right stacked charts + Bottom corner table and insights",
+          "fontFamily": "IBM Plex Sans",
+          "fontSize": 13,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "gFBLc",
+          "name": "recWrap",
+          "width": "fill_container",
+          "fill": "$color-bg-elev-1",
+          "cornerRadius": 12,
+          "stroke": {
+            "thickness": 1,
+            "fill": "$color-border-subtle"
+          },
+          "layout": "vertical",
+          "gap": 10,
+          "padding": 12,
+          "children": [
+            {
+              "type": "frame",
+              "id": "nGX01",
+              "name": "recHeader",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-2",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "padding": [
+                10,
+                12
+              ],
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eKTkx",
+                  "name": "recHeaderLeft",
+                  "fill": "$color-text-primary",
+                  "content": "Header: Lap A selector | Lap B selector | lap meta | delta",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "rFul9",
+                  "name": "recHeaderRight",
+                  "fill": "$color-text-secondary",
+                  "content": "Actions: Reset focus / Sync ON",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eHtDr",
+              "name": "recMain",
+              "width": "fill_container",
+              "height": 680,
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "EQ6td",
+                  "name": "mapCol",
+                  "width": 360,
+                  "height": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-strong"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YuRre",
+                      "name": "mapTitle",
+                      "fill": "$color-text-primary",
+                      "content": "Track Map (always visible)",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HiunO",
+                      "name": "mapHint",
+                      "fill": "$color-text-secondary",
+                      "content": "Click segment to zoom charts and sync corner table",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "9JdTj",
+                      "name": "mapView",
+                      "width": "fill_container",
+                      "height": 430,
+                      "fill": "$color-bg-elev-1",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "path",
+                          "id": "Ovr7G",
+                          "x": 26,
+                          "y": 40,
+                          "name": "trackPath",
+                          "geometry": "M30 45c70-35 190-33 220 25 22 50-6 120-40 158-40 42-102 64-150 44-35-16-48-52-36-97 10-45 48-63 74-79 30-18 30-38-2-44-18-4-40-2-66-7z",
+                          "fill": "#00000000",
+                          "width": 280,
+                          "height": 320,
+                          "stroke": {
+                            "thickness": 3,
+                            "fill": "#5A6D8A"
+                          }
+                        },
+                        {
+                          "type": "frame",
+                          "id": "nPGFV",
+                          "x": 72,
+                          "y": 84,
+                          "name": "segT1",
+                          "width": 54,
+                          "height": 22,
+                          "fill": "#1F314A",
+                          "cornerRadius": 999,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "padding": [
+                            3,
+                            8
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "d9CEr",
+                              "name": "segT1Txt",
+                              "fill": "$color-text-secondary",
+                              "content": "T1",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "X2Nvu",
+                          "x": 168,
+                          "y": 74,
+                          "name": "segT2",
+                          "width": 54,
+                          "height": 22,
+                          "fill": "#1F314A",
+                          "cornerRadius": 999,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "padding": [
+                            3,
+                            8
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "HtMhk",
+                              "name": "segT2Txt",
+                              "fill": "$color-text-secondary",
+                              "content": "T2",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "gJZRi",
+                          "x": 228,
+                          "y": 132,
+                          "name": "segT3",
+                          "width": 92,
+                          "height": 22,
+                          "fill": "#123645",
+                          "cornerRadius": 999,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-accent-secondary"
+                          },
+                          "padding": [
+                            3,
+                            8
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "45nwI",
+                              "name": "segT3Txt",
+                              "fill": "$color-accent-secondary",
+                              "content": "T3 active",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "atsBq",
+                          "x": 192,
+                          "y": 238,
+                          "name": "segT4",
+                          "width": 54,
+                          "height": 22,
+                          "fill": "#1F314A",
+                          "cornerRadius": 999,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "padding": [
+                            3,
+                            8
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "hFTcY",
+                              "name": "segT4Txt",
+                              "fill": "$color-text-secondary",
+                              "content": "T4",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "El2wy",
+                          "x": 92,
+                          "y": 278,
+                          "name": "segT5",
+                          "width": 54,
+                          "height": 22,
+                          "fill": "#1F314A",
+                          "cornerRadius": 999,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "padding": [
+                            3,
+                            8
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "vn66X",
+                              "name": "segT5Txt",
+                              "fill": "$color-text-secondary",
+                              "content": "T5",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "OMSTK",
+                          "x": 32,
+                          "y": 204,
+                          "name": "segT6",
+                          "width": 54,
+                          "height": 22,
+                          "fill": "#1F314A",
+                          "cornerRadius": 999,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "padding": [
+                            3,
+                            8
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "eGW8h",
+                              "name": "segT6Txt",
+                              "fill": "$color-text-secondary",
+                              "content": "T6",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "2lM4w",
+                      "name": "hoverTip",
+                      "width": "fill_container",
+                      "fill": "$color-bg-elev-3",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "FuWRc",
+                          "name": "hoverTipTxt",
+                          "fill": "$color-text-secondary",
+                          "content": "Hover tooltip: Roggia | delta +0.232s | min speed diff -11.6 km/h",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "8LMWj",
+                      "name": "stickyNote",
+                      "fill": "$color-text-secondary",
+                      "content": "Behavior: sticky within compare workspace",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "3g1wU",
+                      "name": "stateLegend",
+                      "width": "fill_container",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "4dUIv",
+                          "name": "defPill",
+                          "fill": "#1F314A",
+                          "cornerRadius": 999,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-subtle"
+                          },
+                          "padding": [
+                            4,
+                            8
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "u5K7J",
+                              "name": "defTxt",
+                              "fill": "$color-text-secondary",
+                              "content": "Default",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 10,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ampPI",
+                          "name": "hovPill",
+                          "fill": "#2B4466",
+                          "cornerRadius": 999,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-border-strong"
+                          },
+                          "padding": [
+                            4,
+                            8
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "tYbKY",
+                              "name": "hovTxt",
+                              "fill": "$color-text-primary",
+                              "content": "Hover",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 10,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "IcBHE",
+                          "name": "actPill",
+                          "fill": "#123645",
+                          "cornerRadius": 999,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$color-accent-secondary"
+                          },
+                          "padding": [
+                            4,
+                            8
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "K5S6U",
+                              "name": "actTxt",
+                              "fill": "$color-accent-secondary",
+                              "content": "Active",
+                              "fontFamily": "IBM Plex Sans",
+                              "fontSize": 10,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nLhnz",
+                  "name": "chartsCol",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mScAX",
+                      "name": "chartLegend",
+                      "fill": "$color-text-secondary",
+                      "content": "Charts (stacked, shared X-axis distance): speed, throttle, brake, steering",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "e6Gvl",
+                      "name": "speedChart",
+                      "width": "fill_container",
+                      "height": 132,
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "XEZP6",
+                          "name": "speedTxt",
+                          "fill": "$chart-speed",
+                          "content": "Speed overlay",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Yo8Vl",
+                      "name": "throttleChart",
+                      "width": "fill_container",
+                      "height": 132,
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "PHumb",
+                          "name": "throttleTxt",
+                          "fill": "$chart-throttle",
+                          "content": "Throttle overlay",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "fJXVQ",
+                      "name": "brakeChart",
+                      "width": "fill_container",
+                      "height": 132,
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "MDxdw",
+                          "name": "brakeTxt",
+                          "fill": "$chart-brake",
+                          "content": "Brake overlay",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "73RtM",
+                      "name": "steeringChart",
+                      "width": "fill_container",
+                      "height": 132,
+                      "fill": "$color-bg-elev-2",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "PcQ89",
+                          "name": "steeringTxt",
+                          "fill": "$chart-steering",
+                          "content": "Steering overlay",
+                          "fontFamily": "IBM Plex Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "0EEIo",
+                      "name": "zoomBand",
+                      "width": "fill_container",
+                      "height": 40,
+                      "fill": "#24344E",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-accent-secondary"
+                      },
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "6lwkY",
+                          "name": "zoomTxt",
+                          "fill": "$color-accent-secondary",
+                          "content": "Zoom window: 1180m - 1425m (from selected segment)",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "3ui91",
+              "name": "recBottom",
+              "width": "fill_container",
+              "height": 280,
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "UMAjp",
+                  "name": "cornerBlock",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "9CXxq",
+                      "name": "cornerTitle",
+                      "fill": "$color-text-primary",
+                      "content": "Corner table (click row => highlight segment + zoom)",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "lVmxi",
+                      "name": "cornerHead",
+                      "fill": "$color-text-secondary",
+                      "content": "Corner | Delta | Min speed diff",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "CDVfc",
+                      "name": "cornerR1",
+                      "width": "fill_container",
+                      "fill": "#123645",
+                      "cornerRadius": 6,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-accent-secondary"
+                      },
+                      "padding": [
+                        7,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "y9FZ7",
+                          "name": "cornerR1Txt",
+                          "fill": "$color-accent-secondary",
+                          "content": "T3 Roggia | +0.232s | -11.6 km/h (active)",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "T0QKn",
+                      "name": "cornerR2",
+                      "fill": "$color-text-primary",
+                      "content": "T1 Rettifilo | +0.184s | -8.2 km/h",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ynpjM",
+                      "name": "cornerR3",
+                      "fill": "$color-text-primary",
+                      "content": "T7 Ascari | +0.119s | -5.1 km/h",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZsL9M",
+                  "name": "insightBlock",
+                  "width": 420,
+                  "height": "fill_container",
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 10,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mtCWJ",
+                      "name": "insightTitle",
+                      "fill": "$color-text-primary",
+                      "content": "Insights panel",
+                      "fontFamily": "Space Grotesk",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "sPELj",
+                      "name": "insight1",
+                      "fill": "$color-error",
+                      "content": "High: Early brake before T3 entry",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "WuDPB",
+                      "name": "insight2",
+                      "fill": "$color-warning",
+                      "content": "Medium: Late throttle after T3 apex",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KHaOF",
+                      "name": "insight3",
+                      "fill": "$color-info",
+                      "content": "Low: Slight steering correction at T1 exit",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "yRKKP",
+                      "name": "insightNote",
+                      "fill": "$color-text-secondary",
+                      "content": "Click insight card to focus related segment",
+                      "fontFamily": "IBM Plex Sans",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "cLMRQ",
+              "name": "propText",
+              "fill": "$color-text-secondary",
+              "content": "Layout proportions: Map 360px fixed (~24%), Charts fluid (~76%); Bottom: Corner table ~70%, Insights ~30%",
+              "fontFamily": "IBM Plex Sans",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "KNaqK",
+          "name": "statesLabel",
+          "fill": "$color-text-primary",
+          "content": "Required states",
+          "fontFamily": "Space Grotesk",
+          "fontSize": 18,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "YncWY",
+          "name": "statesRow",
+          "width": "fill_container",
+          "gap": 10,
+          "children": [
+            {
+              "type": "frame",
+              "id": "yW7RL",
+              "name": "stateLoading",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-2",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "O1tyB",
+                  "name": "stateLoadingT",
+                  "fill": "$color-text-primary",
+                  "content": "Loading",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "QCEDX",
+                  "name": "stateLoadingD",
+                  "fill": "$color-text-secondary",
+                  "content": "Map and charts skeleton placeholders",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sBDTK",
+              "name": "stateEmpty",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-2",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "zIdLN",
+                  "name": "stateEmptyT",
+                  "fill": "$color-text-primary",
+                  "content": "Empty",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "Phv4Y",
+                  "name": "stateEmptyD",
+                  "fill": "$color-text-secondary",
+                  "content": "No telemetry samples for selected laps",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "6VFKb",
+              "name": "stateError",
+              "width": "fill_container",
+              "fill": "#451B25",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-error"
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "1nJdp",
+                  "name": "stateErrorT",
+                  "fill": "$color-error",
+                  "content": "Error",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "xIpaD",
+                  "name": "stateErrorD",
+                  "fill": "#FF9CAA",
+                  "content": "Compare API request failed, show retry",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Fpx6f",
+              "name": "stateNoInsights",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-2",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bbsW2",
+                  "name": "stateNoInsightsT",
+                  "fill": "$color-text-primary",
+                  "content": "No insights",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "YRop4",
+                  "name": "stateNoInsightsD",
+                  "fill": "$color-text-secondary",
+                  "content": "Show neutral message, keep corner table",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "j7Oud",
+          "name": "flowLabel",
+          "fill": "$color-text-primary",
+          "content": "Interaction flows",
+          "fontFamily": "Space Grotesk",
+          "fontSize": 18,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "GuYFE",
+          "name": "flowsRow",
+          "width": "fill_container",
+          "gap": 10,
+          "children": [
+            {
+              "type": "frame",
+              "id": "Gqjr3",
+              "name": "flow1",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-2",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "rAJWA",
+                  "name": "flow1T",
+                  "fill": "$color-text-primary",
+                  "content": "Flow 1",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "O5KOh",
+                  "name": "flow1D",
+                  "fill": "$color-text-secondary",
+                  "content": "Click track segment => charts zoom to startDistM/endDistM",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "rAiWg",
+              "name": "flow2",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-2",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "pGlaN",
+                  "name": "flow2T",
+                  "fill": "$color-text-primary",
+                  "content": "Flow 2",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "TlOa2",
+                  "name": "flow2D",
+                  "fill": "$color-text-secondary",
+                  "content": "Click corner row => map highlight + charts zoom",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "u2h2X",
+              "name": "flow3",
+              "width": "fill_container",
+              "fill": "$color-bg-elev-2",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "elswW",
+                  "name": "flow3T",
+                  "fill": "$color-text-primary",
+                  "content": "Flow 3",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "wFo9D",
+                  "name": "flow3D",
+                  "fill": "$color-text-secondary",
+                  "content": "Click insight => focus linked segment and show evidence",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "O8qxn",
+          "name": "altLabel",
+          "fill": "$color-text-primary",
+          "content": "Alternative layouts",
+          "fontFamily": "Space Grotesk",
+          "fontSize": 18,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "oDfqB",
+          "name": "altRow",
+          "width": "fill_container",
+          "height": 360,
+          "gap": 12,
+          "children": [
+            {
+              "type": "frame",
+              "id": "uyZGJ",
+              "name": "altA",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": 10,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZYfoz",
+                  "name": "altATitle",
+                  "fill": "$color-text-primary",
+                  "content": "Alternative A: Map above charts",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "R4Pa3",
+                  "name": "altADesc",
+                  "fill": "$color-text-secondary",
+                  "content": "Pros: larger map. Risk: map can scroll away.",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "TwAcD",
+                  "name": "altACanvas",
+                  "width": "fill_container",
+                  "height": 250,
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "lGrHI",
+                      "x": 10,
+                      "y": 10,
+                      "name": "altAMap",
+                      "width": 320,
+                      "height": 84,
+                      "fill": "#1A2A40",
+                      "cornerRadius": 6,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "SSlcV",
+                      "x": 10,
+                      "y": 102,
+                      "name": "altACharts",
+                      "width": 320,
+                      "height": 100,
+                      "fill": "#1A2A40",
+                      "cornerRadius": 6,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RRyfx",
+                      "x": 10,
+                      "y": 208,
+                      "name": "altABottom",
+                      "width": 320,
+                      "height": 32,
+                      "fill": "#1A2A40",
+                      "cornerRadius": 6,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "ZxqGo",
+                  "name": "altARec",
+                  "fill": "$color-warning",
+                  "content": "Not chosen",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ZNdJ5",
+              "name": "altB",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$color-bg-elev-1",
+              "cornerRadius": 10,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$color-border-subtle"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "pnlJ1",
+                  "name": "altBTitle",
+                  "fill": "$color-text-primary",
+                  "content": "Alternative B: Tabs for Corner table / Insights",
+                  "fontFamily": "Space Grotesk",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "g3edr",
+                  "name": "altBDesc",
+                  "fill": "$color-text-secondary",
+                  "content": "Pros: compact. Risk: hidden context due to tab switch.",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "LGR7z",
+                  "name": "altBCanvas",
+                  "width": "fill_container",
+                  "height": 250,
+                  "fill": "$color-bg-elev-2",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$color-border-subtle"
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "UMhKv",
+                      "x": 10,
+                      "y": 10,
+                      "name": "altBMap",
+                      "width": 96,
+                      "height": 180,
+                      "fill": "#1A2A40",
+                      "cornerRadius": 6,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "VVdPQ",
+                      "x": 114,
+                      "y": 10,
+                      "name": "altBCharts",
+                      "width": 216,
+                      "height": 180,
+                      "fill": "#1A2A40",
+                      "cornerRadius": 6,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "s7tZ9",
+                      "x": 10,
+                      "y": 198,
+                      "name": "altBTabs",
+                      "width": 320,
+                      "height": 42,
+                      "fill": "#1A2A40",
+                      "cornerRadius": 6,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$color-border-subtle"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "GIPIS",
+                  "name": "altBRec",
+                  "fill": "$color-warning",
+                  "content": "Not chosen",
+                  "fontFamily": "IBM Plex Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "1tSpj",
+          "name": "recNote",
+          "fill": "$color-text-secondary",
+          "content": "Recommendation: Layout A for persistent spatial awareness and faster track-to-data correlation.",
+          "fontFamily": "IBM Plex Sans",
+          "fontSize": 13,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "c1dgb",
+          "name": "dataModelNote",
+          "fill": "$color-text-secondary",
+          "content": "Data mapping: segment click uses corners.startDistM/endDistM to set chart zoom on compare samples distance axis.",
+          "fontFamily": "IBM Plex Sans",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "chart-brake": {
+      "type": "color",
+      "value": "#FF5D73"
+    },
+    "chart-delta": {
+      "type": "color",
+      "value": "#F9D65C"
+    },
+    "chart-lap-a": {
+      "type": "color",
+      "value": "#5CA8FF"
+    },
+    "chart-lap-b": {
+      "type": "color",
+      "value": "#27D3A2"
+    },
+    "chart-speed": {
+      "type": "color",
+      "value": "#74B3FF"
+    },
+    "chart-steering": {
+      "type": "color",
+      "value": "#C792FF"
+    },
+    "chart-throttle": {
+      "type": "color",
+      "value": "#2ED47A"
+    },
+    "color-accent-primary": {
+      "type": "color",
+      "value": "#27D3A2"
+    },
+    "color-accent-secondary": {
+      "type": "color",
+      "value": "#5CA8FF"
+    },
+    "color-bg-canvas": {
+      "type": "color",
+      "value": "#090C12"
+    },
+    "color-bg-elev-1": {
+      "type": "color",
+      "value": "#111827"
+    },
+    "color-bg-elev-2": {
+      "type": "color",
+      "value": "#182234"
+    },
+    "color-bg-elev-3": {
+      "type": "color",
+      "value": "#1F2C43"
+    },
+    "color-border-strong": {
+      "type": "color",
+      "value": "#35507A"
+    },
+    "color-border-subtle": {
+      "type": "color",
+      "value": "#24344E"
+    },
+    "color-error": {
+      "type": "color",
+      "value": "#FF5D73"
+    },
+    "color-info": {
+      "type": "color",
+      "value": "#4DA6FF"
+    },
+    "color-success": {
+      "type": "color",
+      "value": "#2ED47A"
+    },
+    "color-text-muted": {
+      "type": "color",
+      "value": "#7C8CA8"
+    },
+    "color-text-primary": {
+      "type": "color",
+      "value": "#EAF1FF"
+    },
+    "color-text-secondary": {
+      "type": "color",
+      "value": "#A7B8D6"
+    },
+    "color-warning": {
+      "type": "color",
+      "value": "#FFB648"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "IBM Plex Sans"
+    },
+    "font-display": {
+      "type": "string",
+      "value": "Space Grotesk"
+    },
+    "font-mono": {
+      "type": "string",
+      "value": "IBM Plex Mono"
+    },
+    "radius-card": {
+      "type": "number",
+      "value": 12
+    },
+    "radius-input": {
+      "type": "number",
+      "value": 8
+    },
+    "radius-panel": {
+      "type": "number",
+      "value": 14
+    },
+    "space-12": {
+      "type": "number",
+      "value": 12
+    },
+    "space-16": {
+      "type": "number",
+      "value": 16
+    },
+    "space-24": {
+      "type": "number",
+      "value": 24
+    },
+    "space-32": {
+      "type": "number",
+      "value": 32
+    },
+    "space-4": {
+      "type": "number",
+      "value": 4
+    },
+    "space-40": {
+      "type": "number",
+      "value": 40
+    },
+    "space-48": {
+      "type": "number",
+      "value": 48
+    },
+    "space-64": {
+      "type": "number",
+      "value": 64
+    },
+    "space-8": {
+      "type": "number",
+      "value": 8
+    }
+  }
 }

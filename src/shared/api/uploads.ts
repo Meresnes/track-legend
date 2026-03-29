@@ -1,5 +1,5 @@
 import { apiClient } from "./client";
-import { ApiError } from "./errors";
+import { asString, invalidResponse, isRecord } from "./validation";
 
 export type UploadProcessingStatus = "queued" | "running" | "done" | "error";
 export type UploadProcessingStage =
@@ -68,11 +68,9 @@ function parseUploadError(value: unknown): UploadStatusError | null {
     };
   }
 
-  if (typeof value === "object" && value !== null) {
-    const code =
-      "code" in value && typeof value.code === "string" ? value.code : "UPLOAD_ERROR";
-    const message =
-      "message" in value && typeof value.message === "string" ? value.message : null;
+  if (isRecord(value)) {
+    const code = asString(value.code) ?? "UPLOAD_ERROR";
+    const message = asString(value.message);
 
     if (message) {
       return { code, message };
@@ -88,12 +86,11 @@ function parseUploadStatusResponse(payload: RawUploadStatusResponse): UploadStat
     !isUploadStatus(payload.status) ||
     !isUploadStage(payload.stage)
   ) {
-    throw new ApiError({
-      status: 500,
-      code: "UPLOAD_STATUS_INVALID",
-      message: "Upload status response is invalid.",
-      details: payload,
-    });
+    throw invalidResponse(
+      "UPLOAD_STATUS_INVALID",
+      "Upload status response is invalid.",
+      payload,
+    );
   }
 
   return {

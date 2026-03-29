@@ -1,6 +1,5 @@
 import { ApiError, notifyApiError } from "./errors";
-
-type JsonLike = Record<string, unknown>;
+import { asString, isRecord } from "./validation";
 
 function getStatusMessage(status: number): string {
   if (status === 401) return "Unauthorized request.";
@@ -9,17 +8,15 @@ function getStatusMessage(status: number): string {
   return "Request failed.";
 }
 
-function isObject(value: unknown): value is JsonLike {
-  return typeof value === "object" && value !== null;
-}
-
 function extractMessage(payload: unknown, status: number): string {
-  if (!isObject(payload)) return getStatusMessage(status);
-  if (typeof payload.message === "string" && payload.message.length > 0) {
-    return payload.message;
+  if (!isRecord(payload)) return getStatusMessage(status);
+  const payloadMessage = asString(payload.message);
+  if (payloadMessage && payloadMessage.length > 0) {
+    return payloadMessage;
   }
-  if (typeof payload.error === "string" && payload.error.length > 0) {
-    return payload.error;
+  const payloadError = asString(payload.error);
+  if (payloadError && payloadError.length > 0) {
+    return payloadError;
   }
   return getStatusMessage(status);
 }
@@ -55,7 +52,7 @@ export async function apiClient<T>(
     const error = new ApiError({
       status: response.status,
       message: extractMessage(payload, response.status),
-      code: isObject(payload) && typeof payload.code === "string" ? payload.code : undefined,
+      code: isRecord(payload) ? asString(payload.code) ?? undefined : undefined,
       details: payload,
     });
 
