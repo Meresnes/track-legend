@@ -14,3 +14,13 @@ export {
   type UploadStatusError,
   type UploadStatusResponse,
 } from "./uploads";
+export {
+  getSessions,
+  getSessionLaps,
+  setReferenceLap,
+  type SessionListItem,
+  type SessionListResponse,
+  type SessionLapListResponse,
+  type LapListItem,
+  type ReferenceLapUpdateResponse,
+} from "./sessions";
