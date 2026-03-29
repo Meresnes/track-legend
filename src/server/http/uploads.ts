@@ -29,6 +29,7 @@ function createUploadQueuedResponse(uploadId: string) {
     {
       uploadId,
       status: "queued",
+      stage: "queued",
     },
     { status: 201 },
   );
@@ -81,6 +82,7 @@ export async function handleUploadRequest(
       uploadId,
       originalFilename: file.name,
       storedPath,
+      fileSizeBytes: file.size,
     });
   } catch (error) {
     await removeUpload(uploadId, config).catch(() => undefined);

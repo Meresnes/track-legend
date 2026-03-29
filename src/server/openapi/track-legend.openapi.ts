@@ -70,7 +70,7 @@ const healthResponseSchema: OpenAPIV3_1.SchemaObject = {
 const uploadQueuedSchema: OpenAPIV3_1.SchemaObject = {
   type: "object",
   additionalProperties: false,
-  required: ["uploadId", "status"],
+  required: ["uploadId", "status", "stage"],
   properties: {
     uploadId: {
       type: "string",
@@ -81,6 +81,9 @@ const uploadQueuedSchema: OpenAPIV3_1.SchemaObject = {
       type: "string",
       enum: ["queued"],
       example: "queued",
+    },
+    stage: {
+      $ref: "#/components/schemas/UploadStage",
     },
   },
 };
@@ -104,7 +107,7 @@ const uploadErrorSchema: OpenAPIV3_1.SchemaObject = {
 const uploadStatusSchema: OpenAPIV3_1.SchemaObject = {
   type: "object",
   additionalProperties: false,
-  required: ["uploadId", "status", "sessionId", "error"],
+  required: ["uploadId", "status", "stage", "sessionId", "error"],
   properties: {
     uploadId: {
       type: "string",
@@ -115,6 +118,9 @@ const uploadStatusSchema: OpenAPIV3_1.SchemaObject = {
       type: "string",
       enum: ["queued", "running", "done", "error"],
       example: "running",
+    },
+    stage: {
+      $ref: "#/components/schemas/UploadStage",
     },
     sessionId: {
       type: ["string", "null"],
@@ -132,6 +138,22 @@ const uploadStatusSchema: OpenAPIV3_1.SchemaObject = {
       ],
     },
   },
+};
+
+const uploadStageSchema: OpenAPIV3_1.SchemaObject = {
+  type: "string",
+  enum: [
+    "queued",
+    "open_duckdb",
+    "discover_schema",
+    "extract_raw_signals",
+    "segment_laps",
+    "normalize_distance",
+    "resample",
+    "persist_session",
+    "finalize",
+  ],
+  example: "extract_raw_signals",
 };
 
 export function getOpenApiDocument(): OpenAPIV3_1.Document {
@@ -302,6 +324,7 @@ export function getOpenApiDocument(): OpenAPIV3_1.Document {
         ErrorResponse: errorResponseSchema,
         HealthResponse: healthResponseSchema,
         UploadError: uploadErrorSchema,
+        UploadStage: uploadStageSchema,
         UploadQueuedResponse: uploadQueuedSchema,
         UploadStatusResponse: uploadStatusSchema,
       },

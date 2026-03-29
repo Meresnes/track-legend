@@ -35,6 +35,7 @@ describe("OpenAPI document", () => {
     expect(healthPath?.get?.responses).toHaveProperty("503");
     expect(document.components?.schemas).toHaveProperty("ErrorResponse");
     expect(document.components?.schemas).toHaveProperty("HealthResponse");
+    expect(document.components?.schemas).toHaveProperty("UploadStage");
     expect(document.components?.schemas).toHaveProperty("UploadQueuedResponse");
     expect(document.components?.schemas).toHaveProperty("UploadStatusResponse");
   });
